@@ -6,16 +6,16 @@ const Cards = async () => {
   const cards = await getCards();
   return (
     <div>
-      <div className="md:flex md:justify-center ">
-        <div className="md:grid md:grid-cols-3 md:m-[4rem] md:mb-10 gap-11">
+      <div className="md:flex md:justify-center">
+        <div className="md:grid md:grid-cols-3 md:m-[4rem] md:mb-10 gap-11 ">
           {cards.map((card, index) => (
-            <div key={index} className="relative p-[7%] mb-5 min-w-[25vw] w-fit h-max-fit rounded-[12px] border-[2px] border-[#FAB7D0]">
+            <div key={index} className="relative p-[7%] mb-5 min-w-[25vw] w-fit h-max-fit border-[2px] border-[#FAB7D0] rounded-xl">
               <div className="flex">
-                <div className="iconCard relative">
+                <div className="iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px]  w-[87px] h-[87px] rounded-md">
                   <img
                     src={card.cardIcon.asset.url}
                     alt=""
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full rounded-md"
                   />
                 </div>
                 <div className="mx-5">
@@ -37,10 +37,12 @@ const Cards = async () => {
                     <p className="text-[#4428F2] leading-[30px] font-500 text-[16px] clash">{link.name}</p>
                   </div>
                 ))}
-                <div className="absolute bottom-0 py-5 mx-auto px-auto w-[85%]">
-                  <button className="z-10 clash font-500 text-[20px] leading-[30px] text-center border rounded-lg py-[8px] w-full">
+                <div className='absolute w-[85%] bottom-0 py-5 mx-auto'>
+                <div className=" bg-gradient-to-r from-[#3C1FEF] via-[#C51FEF] to-[#EF9C1F] rounded-[10px] p-[1px] ">
+                  <button className="z-10 clash font-500 text-[20px] leading-[30px] text-center border py-[8px] w-full bg-white rounded-lg">
                     App List’s Common Ground
                   </button>
+                </div>
                 </div>
               </div>
             </div>
