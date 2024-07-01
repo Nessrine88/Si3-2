@@ -20,7 +20,7 @@ const Cards = async () => {
                 </div>
                 <div className="mx-5">
                   <p className="clash text-[#404040] font-500 text-[30px] leading-[36px]">{card.title}</p>
-                  <p className="text-[16px] leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-3 px-4 py-1 text-center">{card.status}</p>
+                  <p className="text-[16px] leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-3 px-4 py-1 text-center w-fit">{card.status}</p>
                 </div>
               </div>
               <div>
@@ -49,11 +49,11 @@ const Cards = async () => {
       </div>
       <div className='flex gap-7 justify-center mb-32 mx-20'>
       {/* <Pagination showControls loop  total={3} initialPage={1} style={{borderColor:"#FAB7D0"}} /> */}
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center"><i className="fas fa-chevron-left text-sm"></i></div>
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center ">1</div>
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center">2</div>
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center">3</div>
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center"><i className="fas fa-chevron-right text-sm"></i></div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white"><i className="fas fa-chevron-left text-sm"></i></div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white">1</div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white">2</div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white">3</div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white"><i className="fas fa-chevron-right text-sm"></i></div>
       </div>
     </div>
   );
