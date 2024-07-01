@@ -1,7 +1,15 @@
+"use client"
 import React from 'react';
-// import "../app/globals.css"
+import CardPopup from './CardPopup';
+import { useState } from 'react';
+import "../app/globals.css"
 
 const HomePage = () => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
   return (
     <div className="md:pt-[9rem] pt-[9rem] min-h-screen w-full md:p-[4rem] p-[2rem] bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2] ">
       <div className="flex flex-col lg:flex-row justify-between">
@@ -27,9 +35,10 @@ const HomePage = () => {
             />
             </p>
           </div>
-          <button className="fira-mono-regular rounded-[8px] border border-white text-white px-4 py-2">
+          <button className="fira-mono-regular rounded-[8px] border border-white text-white px-4 py-2"  onClick={togglePopup} >
             Add a community
           </button>
+          <CardPopup show={showPopup} handleClose={togglePopup} />
         </div>
       </div>
       <div className="flex flex-col justify-around mr-[2rem] lg:flex-row gap-5 mt-8">

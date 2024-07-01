@@ -1,5 +1,6 @@
 import React from 'react';
 import { getCards } from '@/lib/types/cards';
+
 // import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
 
 const Cards = async () => {
