@@ -5,8 +5,8 @@ import { getCards } from '@/lib/types/cards';
 const Cards = async () => {
   const cards = await getCards();
   return (
-    <div>
-      <div className="md:flex md:justify-center">
+    <div className="bg-[url('/images/bottombg.png')] bg-no-repeat bg-left-bottom bg-[length:80vw_120vh] ">
+      <div className="md:flex md:justify-center  bg-[url('/images/rightBg.png')] bg-[length:80vw_300vh] bg-no-repeat bg-right-top">
         <div className="md:grid md:grid-cols-3 md:m-[4rem] md:mb-10 gap-11 ">
           {cards.map((card, index) => (
             <div key={index} className="relative p-[7%] mb-5 min-w-[25vw] w-fit h-max-fit border-[2px] border-[#FAB7D0] rounded-xl">
@@ -19,7 +19,7 @@ const Cards = async () => {
                   />
                 </div>
                 <div className="mx-5">
-                  <p className="clash text-[#404040] font-500 text-[30px] leading-[36px]">{card.title}</p>
+                  <p className="clash text-[#404040] font-500 text-[30px] leading-[36px] w-fit">{card.title}</p>
                   <p className="text-[16px] leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-3 px-4 py-1 text-center w-fit">{card.status}</p>
                 </div>
               </div>
@@ -38,8 +38,8 @@ const Cards = async () => {
                   </div>
                 ))}
                 <div className='absolute w-[85%] bottom-0 py-5 mx-auto'>
-                <div className=" bg-gradient-to-r from-[#3C1FEF] via-[#C51FEF] to-[#EF9C1F] rounded-[10px] p-[1px] ">
-                  <button className="z-10 clash font-500 text-[20px] leading-[30px] text-center border py-[8px] w-full bg-white rounded-lg">
+                <div className="p-[1px] border rounded-lg ">
+                  <button className="z-10 clash font-500 text-[20px] leading-[30px] border-gradient text-center py-[8px] w-full rounded-lg">
                     App List’s Common Ground
                   </button>
                 </div>
@@ -49,7 +49,7 @@ const Cards = async () => {
           ))}
         </div>
       </div>
-      <div className='flex gap-7 justify-center mb-32 mx-20'>
+      <div className="flex gap-7 justify-center pb-32 mx-20">
       {/* <Pagination showControls loop  total={3} initialPage={1} style={{borderColor:"#FAB7D0"}} /> */}
         <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white"><i className="fas fa-chevron-left text-sm"></i></div>
         <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white">1</div>
