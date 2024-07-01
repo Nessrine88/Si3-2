@@ -13,7 +13,7 @@ export default function Home() {
     <Navbar />
     <HomePage />
     <Cards />
-    <FooterComponent />
+    {/* <FooterComponent /> */}
     </div>
    </main>
   );

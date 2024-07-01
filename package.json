@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/pagination": "^2.0.33",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.48.1",
     "framer-motion": "^11.2.12",

@@ -102,7 +102,6 @@ body {
   border: 1px solid;
   border-image: linear-gradient(90deg, #3c1fef 0%, #c51fef 50%, #ef9c1f 100%);
   border-image-slice: 1;
-  border-radius: 8px;
 }
 
 .custom-slide {
