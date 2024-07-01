@@ -1,13 +1,13 @@
 import React from 'react';
 import { getCards } from '@/lib/types/cards';
-import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
+// import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
 
 const Cards = async () => {
   const cards = await getCards();
   return (
     <div>
-      <div className="md:flex md:justify-center m-5 ">
-        <div className="md:grid md:grid-cols-3 md:m-[4rem] gap-11">
+      <div className="md:flex md:justify-center ">
+        <div className="md:grid md:grid-cols-3 md:m-[4rem] md:mb-10 gap-11">
           {cards.map((card, index) => (
             <div key={index} className="relative p-[7%] mb-5 min-w-[25vw] w-fit h-max-fit rounded-[12px] border-[2px] border-[#FAB7D0]">
               <div className="flex">
@@ -47,9 +47,13 @@ const Cards = async () => {
           ))}
         </div>
       </div>
-      <div>
-      <Pagination showControls loop  total={3} initialPage={1} style={{borderColor:"#FAB7D0"}} />
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border"></div>
+      <div className='flex gap-7 justify-center mb-32 mx-20'>
+      {/* <Pagination showControls loop  total={3} initialPage={1} style={{borderColor:"#FAB7D0"}} /> */}
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center"><i className="fas fa-chevron-left text-sm"></i></div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center ">1</div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center">2</div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center">3</div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center"><i className="fas fa-chevron-right text-sm"></i></div>
       </div>
     </div>
   );

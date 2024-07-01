@@ -13,7 +13,7 @@ const HomePage = () => {
             WOMEN & NON-BINARY WEB3 ECOSYSTEM.
           </h1>
         </div>
-        <div className="flex h-fit items-center flex-col lg:flex-row mr-[3rem]">
+        <div className="flex h-fit items-center flex-col lg:flex-row mr-[2rem]">
           <div className=" flex items-center mb-4 lg:mb-0  lg:mr-[50px] gap-5">
             <p className="fira-mono-regular text-white  flex gap-2">
               Info
@@ -32,7 +32,7 @@ const HomePage = () => {
           </button>
         </div>
       </div>
-      <div className="flex flex-col justify-around mr-[3rem] lg:flex-row gap-5 mt-8">
+      <div className="flex flex-col justify-around mr-[2rem] lg:flex-row gap-5 mt-8">
         <div className="flex items-center border border-white text-white px-4 py-2 rounded-[8px] w-full lg:w-[42vw] mb-4 lg:mb-0">
           <div className="w-[30px] h-[30px] mr-2 ">
           <img
