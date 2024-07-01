@@ -47,11 +47,12 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
       >
         <div className="relative bg-white mt-40 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
           <button
-            className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-red-600"
+            className="absolute top-2 right-2  text-white px-2 py-2 rounded "
             onClick={handleClose}
             aria-label="Close popup"
           >
-            Close
+           <i className="fas fa-times text-gray-300 text-lg"></i>
+
           </button>
           <h2 id="popup-title" className="text-2xl mb-4">Popup Form</h2>
           <form onSubmit={handleSubmit}>
