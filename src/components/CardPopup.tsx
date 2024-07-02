@@ -40,12 +40,12 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
   return (
     show && (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto "
         aria-labelledby="popup-title"
         role="dialog"
         aria-modal="true"
       >
-        <div className="relative bg-white mt-40 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <div className="relative bg-white mt-40 mb p-6 rounded-lg shadow-lg w-full max-w-lg bg-[url('/images/circleBg.png')] bg-center bg-[length:40vw_70vh] bg-no-repeat">
           <button
             className="absolute top-2 right-2  text-white px-2 py-2 rounded "
             onClick={handleClose}
@@ -54,7 +54,7 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
            <i className="fas fa-times text-gray-300 text-lg"></i>
 
           </button>
-          <h2 id="popup-title" className="text-2xl mb-4">Popup Form</h2>
+          <h2 id="popup-title" className="text-2xl mb-4 ">Popup Form</h2>
           <form onSubmit={handleSubmit}>
             {(['input1', 'input2', 'input3', 'input4', 'input5', 'input6', 'input7'] as const).map((inputName) => (
               <div className="mb-4" key={inputName}>
