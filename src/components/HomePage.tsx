@@ -34,7 +34,7 @@ const HomePage = () => {
             />
             </p>
           </div>
-          <button className="fira-mono-regular rounded-[8px] border border-white text-white px-4 py-2"  onClick={togglePopup} >
+          <button className="fira-mono-regular uppercase rounded-[8px] border border-white text-white px-4 py-2"  onClick={togglePopup} >
             Add a community
           </button>
           <CardPopup show={showPopup} handleClose={togglePopup} />

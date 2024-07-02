@@ -1,12 +1,13 @@
 import React from 'react';
 import { getCards } from '@/lib/types/cards';
+export const revalidate = 3;
 
 // import {Pagination, PaginationItem, PaginationCursor} from "@nextui-org/pagination";
 
 const Cards = async () => {
   const cards = await getCards();
   return (
-    <div className="bg-[url('/images/bottombg.png')] bg-no-repeat bg-left-bottom bg-[length:80vw_120vh] ">
+    <div className="bg-[url('/images/bottombg.png')] bg-no-repeat bg-left-bottom bg-[length:80vw_130vh] ">
       <div className="md:flex md:justify-center  bg-[url('/images/rightBg.png')] bg-[length:80vw_300vh] bg-no-repeat bg-right-top">
         <div className="md:grid lg:grid-cols-3 md:grid-cols-2 md:m-[4rem] md:mb-10 gap-[30px] ">
           {cards.map((card, index) => (
