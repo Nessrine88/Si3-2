@@ -69,10 +69,30 @@ body {
 }
 
 .custom-border-gradient {
-  border: 1px solid;
+  position: relative;
   border-radius: var(--Roundness8);
-  border-image: linear-gradient(90deg, #3C1FEF, #C51FEF, #EF9C1F) 1;
 }
+
+.custom-border-gradient:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(90deg, #3C1FEF, #C51FEF, #EF9C1F);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
 
 .font-outfit {
   font-family: "Outfit", monospace;

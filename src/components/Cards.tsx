@@ -40,7 +40,7 @@ const Cards = async () => {
                 ))}
                 <div className='absolute w-[85%] bottom-0 py-5 mx-auto'>
                 <div className="p-[1px]">
-                  <button className="z-10 clash font-medium text-[20px] leading-[30px] custom-border-gradient text-center py-[8px]  w-full rounded-lg">
+                  <button className="z-10 clash font-medium text-[20px] leading-[30px] border-gradient text-center py-[8px] custom-border-gradient w-full rounded-lg">
                     App List’s Common Ground
                   </button>
                 </div>
