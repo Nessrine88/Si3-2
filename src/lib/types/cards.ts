@@ -20,7 +20,5 @@ export async function getCards(){
 
     `
     const data = await client.fetch(query);
-    console.log(data);
-    
     return data as Card[]
 }

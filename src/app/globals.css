@@ -30,10 +30,10 @@ body {
     width: 100%;
     height: 100%;
   }
-.iconCard {
+ .iconCard {
   width: 87px;
   height: 8auto;
-}
+  }
   .button:hover::before {
     left: 0;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -52,6 +52,14 @@ body {
   }
 }
 
+.shadaw {
+  
+    box-shadow: 0px 0px 23.07px -4.61px rgba(0, 0, 0, 0.1);
+  
+}
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+}
 .font-mono {
   font-family: "Fira Mono", monospace;
 }
@@ -98,12 +106,6 @@ body {
   z-index: 1;
 }
 
-.border-gradient {
-  border: 1px solid;
-  border-image: linear-gradient(90deg, #3c1fef 0%, #c51fef 50%, #ef9c1f 100%);
-  border-image-slice: 1;
-  border-radius: 8px;
-}
 
 .custom-slide {
   width: 400px !important;
