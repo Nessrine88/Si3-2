@@ -20,8 +20,8 @@ const Cards = async () => {
                     className="object-cover w-full h-full rounded-md"
                   />
                 </div>
-                <div className="mx-4">
-                  <p className="clash uppercase font-medium text-[#404040] w-full text-[30px] leading-[36px] ">{card.title}</p>
+                <div className="ml-4">
+                  <p className="clash uppercase font-medium text-[#404040] w-[259px] text-[30px] leading-[36px] ">{card.title}</p>
                   <p className="text-[16px] leading-[25px]  bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-3 px-4  text-center w-fit roboto-mono">{card.status}</p>
                 </div>
               </div>
@@ -30,7 +30,7 @@ const Cards = async () => {
                   {card.description}
                 </p>
               </div>
-              <div className=" mt-32 max-h-36 flex flex-col  ">
+              <div className=" mt-32 max-h-36 flex flex-col ">
                 {card.links.map((link, linkIndex) => (
                   <div key={linkIndex} className="flex items-center  ">
                     <div className="w-[20px] h-[20px] mr-2 ">
