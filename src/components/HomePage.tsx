@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import CardPopup from './CardPopup';
 import "../app/globals.css";
 
-const HomePage = ({ setSearchQuery }: any) => {
+const HomePage = ({searchTerm, handleSearch}: any) => {
   const [showPopup, setShowPopup] = useState(false);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const [dropDownOpen2, setDropDownOpen2] = useState(false);
@@ -87,7 +87,8 @@ const HomePage = ({ setSearchQuery }: any) => {
           <input
             className="w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white"
             placeholder="Search By Name, Location, Description, Values."
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchTerm}
+            onChange={handleSearch}
           />
         </div>
 
@@ -105,10 +106,10 @@ const HomePage = ({ setSearchQuery }: any) => {
               } w-fit absolute top-full mr-7 mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
             >
               <ul className="fira-mono-regular leading-7 text-lg ">
-                <li className='hover:bg-pink-200'>Education</li>
-                <li className="mt-4 hover:bg-pink-200 ">Regional</li>
-                <li className="mt-4 hover:bg-pink-200">NFT Collections</li>
-                <li className="mt-4 hover:bg-pink-200">DAO&apos;s</li>
+                <li className='hover:bg-pink-200 p-2 rounded-lg'>Education</li>
+                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">Regional</li>
+                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">NFT Collections</li>
+                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">DAO&apos;s</li>
               </ul>
             </div>
           </div>
@@ -126,11 +127,11 @@ const HomePage = ({ setSearchQuery }: any) => {
               } w-60 absolute top-full mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
             >
               <ul className="fira-mono-regular leading-7 text-lg">
-                <li>Canada</li>
-                <li className="mt-4">U.S.A</li>
-                <li className="mt-4">LATAM</li>
-                <li className="mt-4">Europe</li>
-                <li className="mt-4">Africa</li>
+                <li className="mt-4  hover:bg-pink-200 p-2 rounded-lg">Canada</li>
+                <li className="mt-4  hover:bg-pink-200 p-2 rounded-lg">U.S.A</li>
+                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">LATAM</li>
+                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">Europe</li>
+                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">Africa</li>
               </ul>
             </div>
           </div>
