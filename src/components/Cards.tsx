@@ -1,14 +1,14 @@
 // Cards.tsx
 
 import React, { useEffect, useState } from 'react';
-import { getCards } from '@/lib/types/cards';
+import { getCards, Card } from '@/lib/types/cards'; // Assuming Card is the type for your cards
 
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
-  const [cards, setCards] = useState([]);
-  const [filteredCards, setFilteredCards] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [cardsPerPage, setCardsPerPage] = useState(15); // Default value for larger screens
-  const [loading, setLoading] = useState(true); // Track loading state
+  const [cards, setCards] = useState<Card[]>([]);
+  const [filteredCards, setFilteredCards] = useState<Card[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [cardsPerPage, setCardsPerPage] = useState<number>(15); // Default value for larger screens
+  const [loading, setLoading] = useState<boolean>(true); // Track loading state
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,7 +69,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
 
   return (
     <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:80vw_130vh] bg-[url('/images/bgGreyMobile.png')] bg-[length:100%_60%] bg-no-repeat bg-right">
-      <div className="flex justify-between bg-no-repeat bg-center bg-[url('/images/pinkyBg.png')] md:bg-[length:100%_100%] md:bg-[url('/images/rightBg.png')] md:bg-right-top bg-[length:30%_30vh] md:clip-auto clip-path-mobile">
+      <div className="flex justify-between bg-no-repeat bg-center bg-[url('/images/pinkyBg.png')] md:bg-[length:100%_100%] md:bg-right-top md:bg-[length:30%_30vh] md:clip-auto clip-path-mobile">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
           {currentCards.map((card, index) => (
             <div key={index} className="p-[25px] flex flex-col justify-between md:w-[412px] md:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">
@@ -114,7 +114,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
           ))}
         </div>
       </div>
-            
+      
       {/* Pagination */}
       <div className="flex md:gap-7 gap-2 justify-center pb-32 mx-20">
         <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage - 1)}>
