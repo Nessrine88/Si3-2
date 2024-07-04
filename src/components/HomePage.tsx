@@ -67,12 +67,12 @@ const HomePage = () => {
         </div>
         <div className="flex flex-col md:flex-row items-center md:mr-28 w-full md:w-auto">
           <div className="flex items-center justify-center  mb-4 lg:mb-0 lg:mr-12 gap-5 w-full md:w-auto">
-            <p className="fira-mono-bold md:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center ">
+            <div className="fira-mono-bold md:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center ">
               Info
               <div>
               <i className="far fa-question-circle w-6 h-6"></i>
               </div>
-            </p>
+            </div>
           </div>
           <button
             className="text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
