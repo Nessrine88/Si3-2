@@ -52,7 +52,7 @@ const HomePage = ({ setSearchQuery }: any) => {
   }, []);
 
   return (
-    <div className="pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2]">
+    <div className="pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')] bg-[url('/images/bgMobile.png')] inset-1 z-50 bg-no-repeat bg-[#d6b3d2]">
       <div className="flex flex-col lg:flex-row justify-between items-start  w-full">
         <div className="font-semibold md:text-[64px] text-[28px] lg:text-6xl leading-10 md:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
           <h1 className="text-white">Discover The</h1>
@@ -108,7 +108,7 @@ const HomePage = ({ setSearchQuery }: any) => {
                 <li>Education</li>
                 <li className="mt-4">Regional</li>
                 <li className="mt-4">NFT Collections</li>
-                <li className="mt-4">DAO's</li>
+                <li className="mt-4">DAO&apos;s</li>
               </ul>
             </div>
           </div>
@@ -136,12 +136,12 @@ const HomePage = ({ setSearchQuery }: any) => {
           </div>
         </div>
       </div>
-      <div className="mt-14 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full">
-        <p className="clash text-[#4428F2] text-lg lg:text-3xl font-medium leading-8 lg:leading-[68px] mb-4">JOIN OUR COMMON GROUND.</p>
-        <p className="text-[#1C1B22] text-sm lg:text-lg leading-5 lg:leading-6 fira-mono-regular mb-10">
-          If you want to get tips for UX job searching, subscribe to my UX Jetpack newsletter. <br /> View at https://uxjetpack.com/newsletter
+      <div className="mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full">
+        <p className="clash text-[#4428F2] text-[24px]  md:text-[30px] font-medium leading-8 lg:leading-[68px] mb-4 ">JOIN OUR COMMON GROUND.</p>
+        <p className="text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-10">
+        Stay connected to Si3’s ecosystem in the community membership platform Common Ground.
         </p>
-        <button className="bg-[#1C1B22] text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-lg fira-mono-regular">
+        <button className="bg-[#1C1B22] text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-[20px] fira-mono-regular">
           COMMON GROUND
         </button>
       </div>
