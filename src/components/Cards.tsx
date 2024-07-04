@@ -1,19 +1,26 @@
-"use client";
+// Cards.tsx
+
 import React, { useEffect, useState } from 'react';
 import { getCards } from '@/lib/types/cards';
 
-const Cards = () => {
+const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cards, setCards] = useState([]);
   const [filteredCards, setFilteredCards] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [cardsPerPage, setCardsPerPage] = useState(15); // Default value for larger screens
+  const [loading, setLoading] = useState(true); // Track loading state
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedCards = await getCards();
-      setCards(fetchedCards);
-      setFilteredCards(fetchedCards); // Initially set filtered cards to all cards
+      try {
+        const fetchedCards = await getCards();
+        setCards(fetchedCards);
+        setFilteredCards(fetchedCards); // Initially set filtered cards to all cards
+        setLoading(false); // Once data is fetched, set loading to false
+      } catch (error) {
+        console.error('Error fetching cards:', error);
+        setLoading(false); // Set loading to false on error as well
+      }
     };
 
     fetchData();
@@ -38,17 +45,15 @@ const Cards = () => {
   }, []);
 
   // Function to handle filtering based on search term
-  const handleSearch = (event) => {
-    const term = event.target.value.toLowerCase();
-    setSearchTerm(term);
+  useEffect(() => {
     const filtered = cards.filter(card =>
-      card.title.toLowerCase().includes(term) ||
-      card.description.toLowerCase().includes(term)
+      card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.description.toLowerCase().includes(searchTerm.toLowerCase())
       // Add more conditions for filtering based on other card properties if needed
     );
     setFilteredCards(filtered);
     setCurrentPage(1); // Reset pagination to first page on search
-  };
+  }, [searchTerm, cards]);
 
   // Logic to paginate cards
   const indexOfLastCard = currentPage * cardsPerPage;
@@ -56,7 +61,11 @@ const Cards = () => {
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
 
   // Change page
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  if (loading) {
+    return <div>Loading...</div>; // Show loading indicator while fetching data
+  }
 
   return (
     <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:80vw_130vh] bg-[url('/images/bgGreyMobile.png')] bg-[length:100%_60%] bg-no-repeat bg-right">
@@ -105,26 +114,23 @@ const Cards = () => {
           ))}
         </div>
       </div>
-      {/* Search input */}
-      <div className="flex justify-center mt-4">
-        <input
-          type="text"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={handleSearch}
-          className="p-2 border border-gray-300 rounded-md w-[300px] sm:w-[400px] md:w-[500px] lg:w-[600px] xl:w-[700px]"
-        />
-      </div>
+            
       {/* Pagination */}
       <div className="flex md:gap-7 gap-2 justify-center pb-32 mx-20">
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage - 1)}><i className="fas fa-chevron-left text-sm"></i></div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage - 1)}>
+          <i className="fas fa-chevron-left text-sm"></i>
+        </div>
         {[...Array(Math.ceil(filteredCards.length / cardsPerPage)).keys()].map(number => (
-          <div key={number} className={`w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white ${currentPage === number + 1 ? 'bg-gray-300' : ''}`} onClick={() => paginate(number + 1)}>{number + 1}</div>
+          <div key={number} className={`w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white ${currentPage === number + 1 ? 'bg-gray-300' : ''}`} onClick={() => paginate(number + 1)}>
+            {number + 1}
+          </div>
         ))}
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage + 1)}><i className="fas fa-chevron-right text-sm"></i></div>
+        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage + 1)}>
+          <i className="fas fa-chevron-right text-sm"></i>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Cards;

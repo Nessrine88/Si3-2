@@ -1,20 +1,18 @@
-import HomePage from "@/components/HomePage";
-import Navbar from "@/components/Navbar";
+// pages/index.tsx (or wherever you define your Home component)
 
-import FooterComponent from "@/components/FooterComponent";
-import Cards from "@/components/Cards";
+import React from 'react';
+import HomePage from '@/components/HomePage';
+import Navbar from '@/components/Navbar';
+import FooterComponent from '@/components/FooterComponent';
 
-
-
-export default function Home() {
+const Home = () => {
   return (
-   <main>
-    <div>
-    <Navbar />
-    <HomePage />
-    <Cards />
-    <FooterComponent />
-    </div>
-   </main>
+    <main>
+      <Navbar />
+      <HomePage />
+      <FooterComponent />
+    </main>
   );
-}
+};
+
+export default Home;

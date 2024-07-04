@@ -2,13 +2,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 import CardPopup from './CardPopup';
 import "../app/globals.css";
+import Cards from './Cards';
 
-const HomePage = ({searchTerm, handleSearch}: any) => {
+const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [dropDownOpen, setDropDownOpen] = useState(false);
   const [dropDownOpen2, setDropDownOpen2] = useState(false);
   const dropdownRef1 = useRef<HTMLDivElement>(null);
   const dropdownRef2 = useRef<HTMLDivElement>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -52,6 +58,7 @@ const HomePage = ({searchTerm, handleSearch}: any) => {
   }, []);
 
   return (
+    <>
     <div className=" pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')] bg-[url('/images/bgMobile.png')] bg-no-repeat bg-[#d6b3d2]">
       <div className="flex flex-col lg:flex-row justify-between items-start  w-full">
         <div className="font-semibold md:text-[64px] text-[28px] lg:text-6xl leading-10 md:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
@@ -89,6 +96,7 @@ const HomePage = ({searchTerm, handleSearch}: any) => {
             placeholder="Search By Name, Location, Description, Values."
             value={searchTerm}
             onChange={handleSearch}
+          
           />
         </div>
 
@@ -147,6 +155,8 @@ const HomePage = ({searchTerm, handleSearch}: any) => {
         </button>
       </div>
     </div>
+    <Cards searchTerm={searchTerm} />
+    </>
   );
 }
 
