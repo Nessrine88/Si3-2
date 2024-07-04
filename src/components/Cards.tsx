@@ -1,7 +1,8 @@
 // Cards.tsx
 
 import React, { useEffect, useState } from 'react';
-import { getCards, Card } from '@/lib/types/cards'; // Assuming Card is the type for your cards
+import { getCards } from '@/lib/types/cards'; 
+import { Card } from '@/lib/types/interfaces';// Assuming Card is the type for your cards
 
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cards, setCards] = useState<Card[]>([]);
