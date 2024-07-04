@@ -5,7 +5,7 @@ const Cards = async() => {
   const cards = await getCards();
 
   return (
-    <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom  md:bg-[length:80vw_130vh] bg-[url('/images/bgGreyMobile.png')] bg-[length:100%_80%] bg-no-repeat bg-center bg-[0.5]">
+    <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom  md:bg-[length:80vw_130vh] bg-[url('/images/bgGreyMobile.png')] bg-[length:100%_80%] bg-no-repeat bg-center">
      <div className="flex justify-between bg-no-repeat bg-center bg-[url('/images/pinkyBg.png')] bg-[length:100%_100%] md:bg-[url('/images/rightBg.png')] md:bg-right-top md:bg-[length:80vw_300vh] md:clip-auto clip-path-mobile">
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
     {cards.map((card, index) => (

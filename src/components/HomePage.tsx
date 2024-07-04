@@ -76,7 +76,7 @@ const HomePage = ({ setSearchQuery }: any) => {
           <CardPopup show={showPopup} handleClose={togglePopup} />
         </div>
       </div>
-      <div className="md:text-[20px] text-[14px] flex flex-col lg:flex-row justify-between lg:mr-28 mt-5 gap-4 lg:gap-12 w-full">
+      <div className="md:text-[20px] text-[14px] flex flex-col lg:flex-row justify-between lg:mr-28 mt-5 gap-4 lg:gap-12  ">
         <div className=" relative flex items-center border border-white px-4 py-2 rounded-lg w-full ">
           <div className="md:w-6 md:h-6 w-5 h-5 mr-2 flex items-center">
             <img
@@ -98,17 +98,17 @@ const HomePage = ({ setSearchQuery }: any) => {
             ref={dropdownRef1}
           >
             <p className="md:mr-3 mr-2 ">Community Type</p>
-            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-5 h-" />
+            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-4 h-auto" />
             <div
               className={`dropdown ${
                 dropDownOpen ? 'block' : 'hidden'
-              } w-60 absolute top-full mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
+              } w-fit absolute top-full mr-7 mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
             >
-              <ul className="fira-mono-regular leading-7 text-lg">
-                <li>Education</li>
-                <li className="mt-4">Regional</li>
-                <li className="mt-4">NFT Collections</li>
-                <li className="mt-4">DAO&apos;s</li>
+              <ul className="fira-mono-regular leading-7 text-lg ">
+                <li className='hover:bg-pink-200'>Education</li>
+                <li className="mt-4 hover:bg-pink-200 ">Regional</li>
+                <li className="mt-4 hover:bg-pink-200">NFT Collections</li>
+                <li className="mt-4 hover:bg-pink-200">DAO&apos;s</li>
               </ul>
             </div>
           </div>
