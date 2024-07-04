@@ -1,80 +1,145 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState, useEffect, useRef } from 'react';
 import CardPopup from './CardPopup';
 import "../app/globals.css";
 
 const HomePage = ({ setSearchQuery }: any) => {
   const [showPopup, setShowPopup] = useState(false);
+  const [dropDownOpen, setDropDownOpen] = useState(false);
+  const [dropDownOpen2, setDropDownOpen2] = useState(false);
+  const dropdownRef1 = useRef<HTMLDivElement>(null);
+  const dropdownRef2 = useRef<HTMLDivElement>(null);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
+  const toggleDropDown = () => {
+    setDropDownOpen(!dropDownOpen);
+  };
+
+  const toggleDropDown2 = () => {
+    setDropDownOpen2(!dropDownOpen2);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef1.current &&
+      !dropdownRef1.current.contains(event.target as Node)
+    ) {
+      setDropDownOpen(false);
+    }
+    if (
+      dropdownRef2.current &&
+      !dropdownRef2.current.contains(event.target as Node)
+    ) {
+      setDropDownOpen2(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflowX = 'hidden';
+    return () => {
+      document.body.style.overflowX = '';
+    };
+  }, []);
+
   return (
-    <div className="md:pt-[170px] pt-[9rem] min-h-screen min-w-full md:p-[4rem] p-[2rem] bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2]">
+    <div className="md:pt-36 min-h-screen w-full px-4  bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2] ">
       <div className="flex flex-col lg:flex-row justify-between">
-        <div className="font-semibold text-[32px] lg:text-[64px] leading-[40px] lg:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
-          <h1 className="text-white">
-            Discover The 
-          </h1>
-          <h1>
-            WOMEN & NON-BINARY WEB3 ECOSYSTEM.
-          </h1>
+        <div className="font-semibold overflow-hidden leading-10 lg:leading-[79px] uppercase text-[#4428F2] clash mb-8">
+          <h1 className="text-white">Discover The</h1>
+          <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
         </div>
-        <div className="flex h-fit items-center flex-col lg:flex-row mr-6 lg:mr-28">
-          <div className="flex items-center mb-4 lg:mb-0 lg:mr-[50px] gap-5">
-            <p className="fira-mono-regular text-white flex gap-2">
+        <div className="flex flex-col lg:flex-row items-center lg:mr-28 w-full lg:w-auto">
+          <div className="flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto">
+            <p className="pt-28 fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center">
               Info
-              <img
-                src={"/images/exclamation.png"}
-                alt=""
-                width={46}
-                height={60}
-                className="w-5 h-5"
-              />
+              <i className="far fa-question-circle w-6 h-6"></i>
             </p>
           </div>
-          <button className="fira-mono-regular uppercase rounded-[8px] border border-white text-white px-4 py-2" onClick={togglePopup}>
+          <button
+            className="fira-mono-regular uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto "
+            onClick={togglePopup}
+          >
             Add a community
           </button>
           <CardPopup show={showPopup} handleClose={togglePopup} />
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between mr-6 lg:mr-28 mt-8 gap-12">
-        <div className="flex items-center border border-white px-4 py-2 rounded-[8px] w-full lg:w-[42vw] mb-4 lg:mb-0">
+      <div className="flex flex-col lg:flex-row justify-between lg:mr-28 mt-8 gap-4 lg:gap-12 w-full">
+        <div className="relative flex items-center border border-white px-4 py-2 rounded-lg w-full lg:w-[42vw]">
           <div className="w-6 h-6 mr-2 flex items-center">
             <img
               src={'/images/bigSearch.png'}
-              className="mr-3 object-fit w-full h-full"
+              className="object-fit w-full h-full"
             />
           </div>
           <input
-            className="w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none cursor-white caret-white text-white"
-            placeholder='Search By Name, Location, Description, Values.'
+            className="text-[14px] w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white"
+            placeholder="Search By Name, Location, Description, Values."
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
-        <div className="flex items-center border border-white text-white px-4 py-2 rounded-[8px] w-full lg:w-[20vw] mb-4 lg:mb-0">
-          <p className="mr-3">Community Type</p>
-          <img
-            src={'/arrow-down.svg'}
-            className='w-[24px] h-[24px]'
-          />
-        </div>
-        <div className="flex items-center border border-white text-white px-4 py-2 rounded-[8px] w-full lg:w-[20vw]">
-          <p className="mr-3">Community Location</p>
-          <img
-            src={'/arrow-down.svg'}
-            className='w-[24px] h-[24px]'
-          />
+
+        <div className="flex flex-row justify-between w-full gap-4">
+          <div
+            className="flex items-center relative border border-white text-white px-4 py-2 rounded-lg w-full cursor-pointer"
+            onClick={toggleDropDown}
+            ref={dropdownRef1}
+          >
+            <p className="mr-3 text-[14px] ">Community Type</p>
+            <img src={'/arrow-down.svg'} className="w-6 h-6" />
+            <div
+              className={`dropdown ${
+                dropDownOpen ? 'block' : 'hidden'
+              } w-60 absolute top-full mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
+            >
+              <ul className="fira-mono-regular leading-7 text-lg">
+                <li>Education</li>
+                <li className="mt-4">Regional</li>
+                <li className="mt-4">NFT Collections</li>
+                <li className="mt-4">DAO's</li>
+              </ul>
+            </div>
+          </div>
+
+          <div
+            className="flex items-center relative border border-white text-white px-4 py-2 rounded-lg w-full cursor-pointer"
+            onClick={toggleDropDown2}
+            ref={dropdownRef2}
+          >
+            <p className="mr-3 text-[14px] ">Community Location</p>
+            <img src={'/arrow-down.svg'} className="w-6 h-6" />
+            <div
+              className={`dropdown ${
+                dropDownOpen2 ? 'block' : 'hidden'
+              } w-60 absolute top-full mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
+            >
+              <ul className="fira-mono-regular leading-7 text-lg">
+                <li>Canada</li>
+                <li className="mt-4">U.S.A</li>
+                <li className="mt-4">LATAM</li>
+                <li className="mt-4">Europe</li>
+                <li className="mt-4">Africa</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mt-14 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-[8px] flex flex-col justify-center items-center text-center p-6">
-        <p className="clash text-[#4428F2] text-[20px] lg:text-[35px] font-medium leading-[30px] lg:leading-[68px] mb-[14px]">JOIN OUR COMMON GROUND.</p>
-        <p className="text-[#1C1B22] text-[14px] lg:text-[20px] leading-[20px] lg:leading-[26px] fira-mono-regular mb-10">
-          If you want to get tips for UX job searching, subscribe to my UX Jetpack newsletter. <br /> View at https://uxjetpack.com/newsletter
+      <div className="mt-14 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full">
+        <p className="clash text-[#4428F2] text-lg lg:text-3xl font-medium leading-8 lg:leading-[68px] mb-4">JOIN OUR COMMON GROUND.</p>
+        <p className="text-[#1C1B22] text-sm lg:text-lg leading-5 lg:leading-6 fira-mono-regular mb-10  ">
+          If you want to get tips for UX job searching, subscribe to my UX Jetpack newsletter. <br /> View at https://uxjetpack.com/newsletter
         </p>
-        <button className="bg-[#1C1B22] text-white px-6 py-4 rounded-[8px] leading-[26px] text-[14px] lg:text-[20px] fira-mono-regular mb-3">
+        <button className="bg-[#1C1B22] text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-lg fira-mono-regular">
           COMMON GROUND
         </button>
       </div>
