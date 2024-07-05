@@ -59,7 +59,7 @@ const HomePage = () => {
 
   return (
     <>
-    <div className=" pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')] bg-[url('/images/bgMobile.png')] bg-no-repeat bg-[#d6b3d2]">
+    <div className="pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')] bg-[url('/images/bgMobile.png')] bg-no-repeat bg-[#d6b3d2]">
       <div className="flex flex-col lg:flex-row justify-between items-start  w-full">
         <div className="font-semibold md:text-[64px] text-[28px] lg:text-6xl leading-10 md:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
           <h1 className="text-white">Discover The</h1>
