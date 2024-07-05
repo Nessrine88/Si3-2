@@ -186,5 +186,12 @@ body {
     font-weight: 700;
     font-style: normal;
   }
+.mobile {
+  display: none;
+}
 
-
+  @media (max-width: 600px) { 
+    .mobile{
+      display: block;
+    }
+   }

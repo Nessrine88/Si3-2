@@ -59,10 +59,11 @@ const HomePage = () => {
 
   return (
     <>
-    <div className=" pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')]   bg-no-repeat bg-[#d6b3d2]">
+   
+    <div className=" relative pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')]   bg-no-repeat bg-[#d6b3d2]">
     <img
     src='/images/bgMobile.png'
-    className='absolute z-10 inset-0'
+    className='absolute z-10 inset-0 h-full w-full '
     />
     
       <div className="relative flex flex-col lg:flex-row justify-between items-start  w-full">

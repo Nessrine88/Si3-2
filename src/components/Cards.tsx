@@ -72,8 +72,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
       
       <div className=" relative flex justify-between bg-no-repeat bg-right md:bg-[length:80vw_300vh] md:bg-right-top md:bg-[url('/images/rightBg.png')]">
-      <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-full opacity-[.7] h-[90%] " />
-      <img src="/images/bgGreyMobile.png" className="absolute -z-10 w-full opacity-[.44] h-[100%]"/>
+      <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-full opacity-[.7] h-[100%] mobile" />
+      <img src="/images/bgGreyMobile.png" className="absolute -z-10 w-full opacity-[.44] h-[100%] mobile"/>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
           {currentCards.map((card, index) => (
             <div key={index} className="p-[25px] flex flex-col justify-between md:w-[412px] md:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">
