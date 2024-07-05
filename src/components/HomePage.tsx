@@ -97,7 +97,7 @@ const HomePage = () => {
             />
           </div>
           <input
-            className="w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white"
+            className="z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white"
             placeholder="Search By Name, Location, Description, Values."
             value={searchTerm}
             onChange={handleSearch}
