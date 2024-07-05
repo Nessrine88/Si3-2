@@ -63,7 +63,7 @@ const HomePage = () => {
     <div className=" relative pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')]   bg-no-repeat bg-[#d6b3d2]">
     <img
     src='/images/bgMobile.png'
-    className='absolute z-10 inset-0 h-full w-full '
+    className='absolute z-20 inset-0 h-full w-full mobile '
     />
     
       <div className="relative flex flex-col lg:flex-row justify-between items-start  w-full">
@@ -80,12 +80,13 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <button
-            className="relative z-1 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
-            onClick={togglePopup}
+          <div
+            className=" text-center relative z-10 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
+           
           >
-            Add a community
-          </button>
+            <p className='z-30 relative cursor-pointer'  onClick={togglePopup}>Add a community</p>
+            
+          </div>
           <CardPopup show={showPopup} handleClose={togglePopup} />
         </div>
       </div>
@@ -113,7 +114,7 @@ const HomePage = () => {
             ref={dropdownRef1}
           >
             <p className="md:mr-3 mr-2 ">Community Type</p>
-            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-4 h-auto" />
+            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-4 h-auto z-20" />
             <div
               className={`dropdown ${
                 dropDownOpen ? 'block' : 'hidden'
@@ -134,7 +135,7 @@ const HomePage = () => {
             ref={dropdownRef2}
           >
             <p className="md:mr-3 mr-2">Community Location</p>
-            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-5 h-5" />
+            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-5 h-5 z-20" />
             <div
               className={`dropdown ${
                 dropDownOpen2 ? 'block' : 'hidden'

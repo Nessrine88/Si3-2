@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
-
+import "../app/globals.css"
 interface FormData {
   input1: string;
   input2: string;
@@ -13,14 +13,14 @@ interface FormData {
 
 const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show, handleClose }) => {
   const [formData, setFormData] = useState<FormData>({
-    input1: '',
-    input2: '',
-    input3: '',
-    input4: '',
-    input5: '',
-    input6: '',
-    input7: '',
-    textarea: ''
+    input1: 'Company Name',
+    input2: 'Community Leader Name*',
+    input3: 'Community Leader Email* ',
+    input4: 'X Handle',
+    input5: 'Warpast Handle',
+    input6: 'Community Website',
+    input7: 'Community Location',
+    textarea: 'Community Type'
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -45,7 +45,8 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
         role="dialog"
         aria-modal="true"
       >
-        <div className="relative bg-white mt-40 mb p-6 rounded-lg shadow-lg w-full max-w-lg bg-[url('/images/circleBg.png')] bg-center bg-[length:40vw_70vh] bg-no-repeat">
+        <div className="relative bg-white mt-96 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <img src="/images/circleBg.png" alt="" className='absolute inset-0 mt-10 w-full h-[70%] '/>
           <button
             className="absolute top-2 right-2  text-white px-2 py-2 rounded "
             onClick={handleClose}
@@ -54,10 +55,10 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
            <i className="fas fa-times text-gray-300 text-lg"></i>
 
           </button>
-          <h2 id="popup-title" className="text-2xl mb-4 ">Popup Form</h2>
+          <h2 id="popup-title" className="text-2xl mb-4 ">Add Community </h2>
           <form onSubmit={handleSubmit}>
-            {(['input1', 'input2', 'input3', 'input4', 'input5', 'input6', 'input7'] as const).map((inputName) => (
-              <div className="mb-4" key={inputName}>
+            {(['Community Name*', 'Community Leader Name*', 'Community Leader Email* ', 'X Handle', 'Warpast Handle', 'Community Website', 'Community Location','Community Type','Community Description*'] as const).map((inputName) => (
+              <div className="mb-4 fira-mono-regular" key={inputName}>
                 <label className="block text-gray-700">{inputName.replace('input', 'Input ')}</label>
                 <input
                   type="text"
@@ -79,7 +80,7 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
             </div>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"
             >
               Submit
             </button>
