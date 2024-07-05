@@ -59,9 +59,14 @@ const HomePage = () => {
 
   return (
     <>
-    <div className="pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')] bg-[url('/images/bgMobile.png')] bg-no-repeat bg-[#d6b3d2]">
-      <div className="flex flex-col lg:flex-row justify-between items-start  w-full">
-        <div className="font-semibold md:text-[64px] text-[28px] lg:text-6xl leading-10 md:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
+    <div className=" pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')]   bg-no-repeat bg-[#d6b3d2]">
+    <img
+    src='/images/bgMobile.png'
+    className='absolute z-10 inset-0'
+    />
+    
+      <div className="relative flex flex-col lg:flex-row justify-between items-start  w-full">
+        <div className="z-20 font-semibold md:text-[64px] text-[28px] lg:text-6xl leading-10 md:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
           <h1 className="text-white">Discover The</h1>
           <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
         </div>
@@ -75,7 +80,7 @@ const HomePage = () => {
             </div>
           </div>
           <button
-            className="text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
+            className="relative z-1 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
             onClick={togglePopup}
           >
             Add a community
@@ -150,12 +155,14 @@ const HomePage = () => {
         <p className="text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-10">
         Stay connected to Si3’s ecosystem in the community membership platform Common Ground.
         </p>
-        <button className="bg-[#1C1B22] text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-[20px] fira-mono-regular">
+        <button className="bg-[#1C1B22]  text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-[20px] fira-mono-regular">
           COMMON GROUND
         </button>
       </div>
     </div>
+    <div className='relative'>
     <Cards searchTerm={searchTerm} />
+    </div>
     </>
   );
 }
