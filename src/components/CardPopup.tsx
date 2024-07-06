@@ -1,31 +1,48 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import "../app/globals.css"
+
 interface FormData {
-  input1: string;
-  input2: string;
-  input3: string;
-  input4: string;
-  input5: string;
-  input6: string;
-  input7: string;
-  textarea: string;
+  "Company Name": string;
+  "Community Leader Name*": string;
+  'Community Leader Email*': string;
+  'X Handle': string;
+  'Warpast Handle': string;
+  'Community Website': string;
+  'Community Location': string;
+  'Community Type': string;
+  'Community Description': string;
 }
 
 const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show, handleClose }) => {
-  const [formData, setFormData] = useState<FormData>({
-    input1: 'Company Name',
-    input2: 'Community Leader Name*',
-    input3: 'Community Leader Email* ',
-    input4: 'X Handle',
-    input5: 'Warpast Handle',
-    input6: 'Community Website',
-    input7: 'Community Location',
-    textarea: 'Community Type'
-  });
+  const initialFormData: FormData = {
+    "Company Name": '',
+    "Community Leader Name*": '',
+    'Community Leader Email*': '',
+    'X Handle': '',
+    'Warpast Handle': '',
+    'Community Website': '',
+    'Community Location': '',
+    'Community Type': '',
+    'Community Description': ''
+  };
+
+  const [formData, setFormData] = useState<FormData>(initialFormData);
+
+  const formPlaceholder = [
+    'Company Name',
+    'Community Leader Name*',
+    'Community Leader Email*',
+    'X Handle',
+    'Warpast Handle',
+    'Community Website',
+    'Community Location',
+    'Community Type',
+    'Community Description'
+  ];
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({
+    setFormData(prevData => ({
       ...prevData,
       [name]: value
     }));
@@ -33,48 +50,46 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+    // Handle form submission logic here
+    console.log(formData); // Replace with actual submission logic
   };
 
   return (
     show && (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto "
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto"
         aria-labelledby="popup-title"
         role="dialog"
         aria-modal="true"
       >
         <div className="relative bg-white mt-96 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
-        <img src="/images/circleBg.png" alt="" className='absolute inset-0 mt-10 w-full h-[70%] '/>
-          <button
-            className="absolute top-2 right-2  text-white px-2 py-2 rounded "
-            onClick={handleClose}
-            aria-label="Close popup"
-          >
-           <i className="fas fa-times text-gray-300 text-lg"></i>
-
-          </button>
-          <h2 id="popup-title" className="text-2xl mb-4 ">Add Community </h2>
+          <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
+          <div className="flex justify-between items-center mb-4">
+            <h2 id="popup-title" className="text-2xl">Add Community</h2>
+         
+              <i className="fas fa-times text-[#404040] text-lg" onClick={handleClose}></i>
+          
+          </div>
           <form onSubmit={handleSubmit}>
-            {(['Community Name*', 'Community Leader Name*', 'Community Leader Email* ', 'X Handle', 'Warpast Handle', 'Community Website', 'Community Location','Community Type','Community Description*'] as const).map((inputName) => (
-              <div className="mb-4 fira-mono-regular" key={inputName}>
-                <label className="block text-gray-700">{inputName.replace('input', 'Input ')}</label>
+            {Object.keys(formData).map((inputName, index) => (
+              <div key={inputName} className="mb-4">
+                <label className="block text-[#404040]">{inputName}</label>
                 <input
                   type="text"
                   name={inputName}
-                  className="w-full p-2 border border-gray-300 rounded mt-1"
-                  value={formData[inputName]}
+                  className="w-full p-2 border border-gray-300 rounded mt-1 relative z-30"
+                  value={formData[inputName as keyof FormData]}
+                  placeholder={formPlaceholder[index]}
                   onChange={handleChange}
                 />
               </div>
             ))}
             <div className="mb-4">
-              <label className="block text-gray-700">Textarea</label>
+              <label className="block text-[#404040]">Community Description</label>
               <textarea
-                name="textarea"
+                name="Community Description"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
-                value={formData.textarea}
+                value={formData['Community Description']}
                 onChange={handleChange}
               ></textarea>
             </div>

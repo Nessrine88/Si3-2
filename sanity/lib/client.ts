@@ -1,11 +1,14 @@
-import { createClient } from 'next-sanity'
+// sanity/client.ts
+import { createClient } from 'next-sanity';
+import { apiVersion, dataset, projectId, useCdn } from '../env';
 
-import { apiVersion, dataset, projectId, useCdn } from '../env'
+const token = process.env.SANITY_API_TOKEN;
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
   useCdn,
-  perspective: 'published',
-})
+  token, // Include the API token here
+
+});

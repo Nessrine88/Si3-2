@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { getCards } from '@/lib/types/cards'; 
 import { Card } from '@/lib/types/interfaces';
 
+
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cards, setCards] = useState<Card[]>([]);
   const [filteredCards, setFilteredCards] = useState<Card[]>([]);
@@ -73,10 +74,10 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
       
       <div className=" relative flex justify-center bg-no-repeat bg-right md:bg-[length:80vw_300vh] md:bg-right-top md:bg-[url('/images/rightBg.png')]">
       <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-full opacity-[.7] h-[100%] mobile" />
-      <img src="/images/bgGreyMobile.png" className="absolute -z-10 w-full opacity-[.44] h-[120%] mobile"/>
-        <div className="grid grid-cols-1 justify-center sm:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
+      <img src="/images/bgGreyMobile.png" className="absolute -z-10 w-full opacity-[.44] h-[100%] mobile"/>
+        <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
           {currentCards.map((card, index) => (
-            <div key={index} className="mx-auto p-[25px] flex flex-col justify-between md:w-[412px] md:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">
+            <div key={index} className="mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">
               <div className='flex flex-col h-full justify-between'>
                 <div>
                   <div className="flex">
@@ -125,7 +126,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
           <i className="fas fa-chevron-left text-sm"></i>
         </div>
         {[...Array(Math.ceil(filteredCards.length / cardsPerPage)).keys()].map(number => (
-          <div key={number} className={`w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white ${currentPage === number + 1 ? 'bg-gray-300' : ''}`} onClick={() => paginate(number + 1)}>
+          <div key={number} className={` w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white ${currentPage === number + 1 ? 'bg-black text-white' : ''}`} onClick={() => paginate(number + 1)}>
             {number + 1}
           </div>
         ))}

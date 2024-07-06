@@ -60,20 +60,20 @@ const HomePage = () => {
   return (
     <>
    
-    <div className=" relative pb-10  md:pt-36 pt-24 min-h-screen w-full  px-4 md:px-16 md:bg-[url('/images/bgGradient.png')]   bg-no-repeat bg-[#d6b3d2]">
+    <div className=" relative pb-10  lg:pt-36 pt-24 min-h-screen w-full  px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')]   bg-no-repeat bg-[#d6b3d2]">
     <img
     src='/images/bgMobile.png'
     className='absolute z-20 inset-0 h-full w-full mobile '
     />
     
       <div className="relative flex flex-col lg:flex-row justify-between items-start  w-full">
-        <div className="z-20 font-semibold md:text-[64px] text-[28px] lg:text-6xl leading-10 md:leading-[79px] uppercase text-[#4428F2] clash mb-8 md:w-[56%]">
+        <div className="z-20 font-semibold lg:text-[64px] text-[28px] lg:text-6xl leading-10 lg:leading-[79px] uppercase text-[#4428F2] clash mb-8 lg:w-[56%]">
           <h1 className="text-white">Discover The</h1>
           <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
         </div>
-        <div className="flex flex-col md:flex-row items-center md:mr-28 w-full md:w-auto">
-          <div className="flex items-center justify-center  mb-4 lg:mb-0 lg:mr-12 gap-5 w-full md:w-auto">
-            <div className="fira-mono-bold md:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center ">
+        <div className="flex flex-col lg:flex-row items-center lg:mr-28 w-full lg:w-auto ">
+          <div className="flex items-center justify-center  mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto">
+            <div className="fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center ">
               Info
               <div>
               <i className="far fa-question-circle w-6 h-6"></i>
@@ -81,10 +81,10 @@ const HomePage = () => {
             </div>
           </div>
           <div
-            className=" text-center relative z-10 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
-           
+            className=" text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
+            onClick={togglePopup}
           >
-            <p className='z-30 relative cursor-pointer'  onClick={togglePopup}>Add a community</p>
+            <p className='z-30 relative cursor-pointer'  >Add a community</p>
             
           </div>
           <CardPopup show={showPopup} handleClose={togglePopup} />
