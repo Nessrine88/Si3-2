@@ -73,8 +73,12 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
     <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
       
       <div className="relative flex justify-center bg-no-repeat bg-right md:bg-[length:80vw_300vh] md:bg-right-top md:bg-[url('/images/rightBg.png')]">
-      <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-full opacity-[.7] h-[100%] mobile" />
-      <img src="/images/bgGreyMobile.png" className="absolute -z-20 w-full opacity-[.5] h-[80%] mobile bg-center"/>
+      <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-[180vw] opacity-[.7] h-[100%] mobile" />
+      
+      <img src="/images/Ellipse1.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
+      <img src="/images/Ellipse2.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
+      <img src="/images/Ellipse3.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
+      <img src="/images/bgGreyMobile.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center opacity-15"/>
         <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
           {currentCards.map((card, index) => (
             <div key={index} className="mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">
