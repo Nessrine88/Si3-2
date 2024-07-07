@@ -72,20 +72,20 @@ const HomePage = () => {
           <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
         </div>
         <div className="flex flex-col lg:flex-row items-center lg:mr-28 w-full lg:w-auto ">
-          <div className="flex items-center justify-center  mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto">
-            <div className="fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center ">
+          <div className="relative flex items-center justify-center  mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto">
+            <div className="group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center ">
               Info
+              <span
+              className="info  invisible group-hover:visible  fira-mono-regular  leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30 ">
+           
+                Submit your community for our team's review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+            
+              </span>
               <div>
               <i className="far fa-question-circle w-6 h-6"></i>
               </div>
             </div>
-            <div
-              className={`info fira-mono-regular  leading-[20px] tracking-[10%] text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30`}
-            >
-              <p>
-                Submit your community for our team's review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
-              </p>
-              </div>
+           
           </div>
           <div
             className=" text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "

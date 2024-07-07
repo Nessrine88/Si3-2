@@ -65,7 +65,7 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
         <div className="relative bg-white mt-96 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
           <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
           <div className="flex justify-between items-center mb-4">
-            <h2 id="popup-title" className="text-2xl">Add Community</h2>
+            <h2 id="popup-title" className="text-2xl clash font-bold leading-6 text-[20px] ">Add Community</h2>
          
               <i className="fas fa-times text-[#404040] text-lg" onClick={handleClose}></i>
           
@@ -73,11 +73,11 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
           <form onSubmit={handleSubmit}>
             {Object.keys(formData).map((inputName, index) => (
               <div key={inputName} className="mb-4">
-                <label className="block text-[#404040]">{inputName}</label>
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px] ">{inputName}</label>
                 <input
                   type="text"
                   name={inputName}
-                  className="w-full p-2 border border-gray-300 rounded mt-1 relative z-30"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%] "
                   value={formData[inputName as keyof FormData]}
                   placeholder={formPlaceholder[index]}
                   onChange={handleChange}
