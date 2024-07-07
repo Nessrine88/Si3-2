@@ -79,12 +79,19 @@ const HomePage = () => {
               <i className="far fa-question-circle w-6 h-6"></i>
               </div>
             </div>
+            <div
+              className={`info fira-mono-regular  leading-[20px] tracking-[10%] text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30`}
+            >
+              <p>
+                Submit your community for our team's review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+              </p>
+              </div>
           </div>
           <div
             className=" text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium "
             onClick={togglePopup}
           >
-            <p className='z-30 relative cursor-pointer'  >Add a community</p>
+            <p className='z-30 relative cursor-pointer'>Add a community</p>
             
           </div>
           <CardPopup show={showPopup} handleClose={togglePopup} />
