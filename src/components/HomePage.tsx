@@ -118,7 +118,7 @@ const HomePage = () => {
             <div
               className={`dropdown ${
                 dropDownOpen ? 'block' : 'hidden'
-              } w-fit absolute top-full mr-7 mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
+              } w-fit absolute top-full mr-7 mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30`}
             >
               <ul className="fira-mono-regular leading-7 text-lg ">
                 <li className='hover:bg-pink-200 p-2 rounded-lg'>Education</li>
@@ -139,7 +139,7 @@ const HomePage = () => {
             <div
               className={`dropdown ${
                 dropDownOpen2 ? 'block' : 'hidden'
-              } w-60 absolute top-full mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-10`}
+              } md:w-[60%] w-fit absolute top-full mt-1 text-black p-5 px-10 bg-white border border-gray-300 rounded-md shadow-lg z-30`}
             >
               <ul className="fira-mono-regular leading-7 text-lg">
                 <li className="mt-4  hover:bg-pink-200 p-2 rounded-lg">Canada</li>
