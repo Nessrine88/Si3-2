@@ -8,7 +8,6 @@ export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn,
-  token, // Include the API token here
+  token,
 
 });
