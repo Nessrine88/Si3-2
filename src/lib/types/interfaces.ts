@@ -11,6 +11,7 @@ export interface  Card {
   title: string;
   status: string;
   description: string;
+  communityLocation: string;
   links: {
       icon: {
           asset: {

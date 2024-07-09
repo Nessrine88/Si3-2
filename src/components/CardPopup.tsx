@@ -40,6 +40,7 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
         role="dialog"
         aria-modal="false"
       >
+        <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
         <div className="relative bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
           <div className="flex justify-between items-center mb-4">
             <h2 id="popup-title" className="text-2xl clash font-bold leading-6 text-[20px]">Add Community</h2>

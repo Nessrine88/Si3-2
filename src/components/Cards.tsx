@@ -1,9 +1,8 @@
-// Cards.tsx
-
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { getCards } from '@/lib/types/cards'; 
 import { Card } from '@/lib/types/interfaces';
-
+import EmptyPage from './EmptyPage';
 
 const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const [cards, setCards] = useState<Card[]>([]);
@@ -17,71 +16,75 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
       try {
         const fetchedCards = await getCards();
         setCards(fetchedCards);
-        setFilteredCards(fetchedCards); // Initially set filtered cards to all cards
-        setLoading(false); // Once data is fetched, set loading to false
+        setFilteredCards(fetchedCards); 
+        setLoading(false); 
       } catch (error) {
         console.error('Error fetching cards:', error);
-        setLoading(false); // Set loading to false on error as well
+        setLoading(false); 
       }
     };
 
     fetchData();
   }, []);
 
-  // Function to handle resizing and update cardsPerPage
   const handleResize = () => {
     const width = window.innerWidth;
     if (width < 768) {
-      setCardsPerPage(5); // Set to 5 for mobile screens
+      setCardsPerPage(5); 
     } else {
-      setCardsPerPage(15); // Set to 15 for larger screens
+      setCardsPerPage(15); 
     }
   };
 
   useEffect(() => {
-    handleResize(); // Set initial cardsPerPage based on window size
+    handleResize(); 
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
 
-  // Function to handle filtering based on search term
   useEffect(() => {
     const filtered = cards.filter(card =>
       card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.description.toLowerCase().includes(searchTerm.toLowerCase())
-      // Add more conditions for filtering based on other card properties if needed
+      card.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.status.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.communityLocation?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredCards(filtered);
-    setCurrentPage(1); // Reset pagination to first page on search
+    setCurrentPage(1); 
   }, [searchTerm, cards]);
 
-  // Logic to paginate cards
   const indexOfLastCard = currentPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
 
-  // Change page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   if (loading) {
-    return <div>Loading...</div>; // Show loading indicator while fetching data
+    return <div>Loading...</div>; 
+  }
+
+  if (filteredCards.length === 0) {
+    return <EmptyPage />; 
   }
 
   return (
-    <div className="md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
-      
+    <div className="md:h-[3200px]  md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
       <div className="relative flex justify-center bg-no-repeat bg-right md:bg-[length:80vw_300vh] md:bg-right-top md:bg-[url('/images/rightBg.png')]">
-      <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-[180vw] opacity-[.7] h-[100%] mobile" />
-      
-      <img src="/images/Ellipse1.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
-      <img src="/images/Ellipse2.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
-      <img src="/images/Ellipse3.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
-      {/* <img src="/images/bgGreyMobile.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center opacity-15"/> */}
+        <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-[180vw] opacity-[.7] h-[100%] mobile" />
+        <img src="/images/Ellipse1.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
+        <img src="/images/Ellipse2.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
+        <img src="/images/Ellipse3.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
         <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
           {currentCards.map((card, index) => (
-            <div key={index} className="mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl"
+            >
               <div className='flex flex-col h-full justify-between'>
                 <div>
                   <div className="flex">
@@ -94,7 +97,11 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                     </div>
                     <div className="ml-4">
                       <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.title}</p>
-                      <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-3 px-4 text-center w-fit roboto-mono">{card.status}</p>
+                      <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 px-4 text-center w-fit roboto-mono">{card.status}</p>
+                      <div className="flex items-center">
+                        <img src="/images/location.png" alt="location icon" className='w-4 h-4 mr-1'/>
+                        <p className="leading-6 text-[16px] fira-mono-regular text-[#404040] ">{card.communityLocation}</p>
+                      </div>
                     </div>
                   </div>
                   <div>
@@ -119,25 +126,42 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
       
-      {/* Pagination */}
-      <div className="flex md:gap-7 gap-2 justify-center pb-32 mx-20">
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage - 1)}>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="flex md:gap-7 gap-2 justify-center pb-32 mx-20"
+      >
+        <motion.div 
+          whileHover={{ scale: 1.1 }}
+          className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" 
+          onClick={() => paginate(currentPage - 1)}
+        >
           <i className="fas fa-chevron-left text-sm"></i>
-        </div>
+        </motion.div>
         {[...Array(Math.ceil(filteredCards.length / cardsPerPage)).keys()].map(number => (
-          <div key={number} className={` w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white ${currentPage === number + 1 ? 'bg-black text-white' : ''}`} onClick={() => paginate(number + 1)}>
+          <motion.div 
+            key={number} 
+            whileHover={{ scale: 1.1 }}
+            className={`w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white ${currentPage === number + 1 ? 'bg-black text-white' : ''}`} 
+            onClick={() => paginate(number + 1)}
+          >
             {number + 1}
-          </div>
+          </motion.div>
         ))}
-        <div className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" onClick={() => paginate(currentPage + 1)}>
+        <motion.div 
+          whileHover={{ scale: 1.1 }}
+          className="w-12 h-12 rounded-md border-[#FAB7D0] border flex justify-center items-center hover:bg-black hover:text-white" 
+          onClick={() => paginate(currentPage + 1)}
+        >
           <i className="fas fa-chevron-right text-sm"></i>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

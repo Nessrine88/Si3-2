@@ -1,8 +1,9 @@
-import { client } from "../../../sanity/lib/client"
+import { client } from "../../../sanity/lib/client";
 import { Card } from "./interfaces";
+import groq from "groq";
 export async function getCards(){
-    const query=`
-*[_type == "cards"] {
+    const query=groq`
+   *[_type == "cards"] {
       _id,
       cardIcon {
         asset->{url, metadata {dimensions}}
@@ -21,5 +22,6 @@ export async function getCards(){
 
     `
     const data = await client.fetch(query);
+    
     return data as Card[]
 }
