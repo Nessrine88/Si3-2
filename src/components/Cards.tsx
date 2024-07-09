@@ -78,7 +78,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
       <img src="/images/Ellipse1.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
       <img src="/images/Ellipse2.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
       <img src="/images/Ellipse3.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
-      <img src="/images/bgGreyMobile.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center opacity-15"/>
+      {/* <img src="/images/bgGreyMobile.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center opacity-15"/> */}
         <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
           {currentCards.map((card, index) => (
             <div key={index} className="mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl">

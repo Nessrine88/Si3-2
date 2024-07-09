@@ -1,105 +1,51 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useEffect } from 'react';
 import "../app/globals.css"
 
-interface FormData {
-  "Company Name": string;
-  "Community Leader Name*": string;
-  'Community Leader Email*': string;
-  'X Handle': string;
-  'Warpast Handle': string;
-  'Community Website': string;
-  'Community Location': string;
-  'Community Type': string;
-  'Community Description': string;
-}
-
 const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show, handleClose }) => {
-  const initialFormData: FormData = {
-    "Company Name": '',
-    "Community Leader Name*": '',
-    'Community Leader Email*': '',
-    'X Handle': '',
-    'Warpast Handle': '',
-    'Community Website': '',
-    'Community Location': '',
-    'Community Type': '',
-    'Community Description': ''
-  };
+  useEffect(() => {
+    if (show) {
+      const script = document.createElement("script");
+      script.src = "//js.hsforms.net/forms/embed/v2.js";
+      script.async = true;
+      script.onload = () => {
+        // @ts-ignore
+        if (window.hbspt) {
+          // @ts-ignore
+          window.hbspt.forms.create({
+            region: "na1",
+            portalId: "45396312",
+            formId: "52c3e838-aa8e-4e75-b874-4fd6ac9c3aef",
+            target: "#hubspotForm"
+          });
+        }
+      };
+      document.body.appendChild(script);
 
-  const [formData, setFormData] = useState<FormData>(initialFormData);
-
-  const formPlaceholder = [
-    'Company Name',
-    'Community Leader Name*',
-    'Community Leader Email*',
-    'X Handle',
-    'Warpast Handle',
-    'Community Website',
-    'Community Location',
-    'Community Type',
-    'Community Description'
-  ];
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData); // Replace with actual submission logic
-  };
+      // Clean up the script and form on unmount
+      return () => {
+        document.body.removeChild(script);
+        const formContainer = document.getElementById("hubspotForm");
+        if (formContainer) {
+          formContainer.innerHTML = '';
+        }
+      };
+    }
+  }, [show]);
 
   return (
     show && (
       <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4  overflow-auto"
         aria-labelledby="popup-title"
         role="dialog"
-        aria-modal="true"
+        aria-modal="false"
       >
-        <div className="relative bg-white mt-96 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
-          <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
+        <div className="relative bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
           <div className="flex justify-between items-center mb-4">
-            <h2 id="popup-title" className="text-2xl clash font-bold leading-6 text-[20px] ">Add Community</h2>
-         
-              <i className="fas fa-times text-[#404040] text-lg" onClick={handleClose}></i>
-          
+            <h2 id="popup-title" className="text-2xl clash font-bold leading-6 text-[20px]">Add Community</h2>
+            <i className="fas fa-times text-[#404040] text-lg cursor-pointer" onClick={handleClose}></i>
           </div>
-          <form onSubmit={handleSubmit}>
-            {Object.keys(formData).map((inputName, index) => (
-              <div key={inputName} className="mb-4">
-                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px] ">{inputName}</label>
-                <input
-                  type="text"
-                  name={inputName}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%] "
-                  value={formData[inputName as keyof FormData]}
-                  placeholder={formPlaceholder[index]}
-                  onChange={handleChange}
-                />
-              </div>
-            ))}
-            <div className="mb-4">
-              <label className="block text-[#404040]">Community Description</label>
-              <textarea
-                name="Community Description"
-                className="w-full p-2 border border-gray-300 rounded mt-1"
-                value={formData['Community Description']}
-                onChange={handleChange}
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"
-            >
-              Submit
-            </button>
-          </form>
+          <div id="hubspotForm"></div>
         </div>
       </div>
     )

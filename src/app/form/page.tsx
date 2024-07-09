@@ -7,11 +7,28 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
- const onSubmit = async(data:any) => {
-  const{name, email, community} = data
-  const res = await fetch("/api/form",
-    {method:"POST", body:JSON.stringify({name, email, community})})
- }
+  const onSubmit = async (data: any) => {
+    try {
+      const res = await fetch('/api/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+  
+      if (!res.ok) {
+        const errorMessage = await res.text();
+        throw new Error(`HTTP error! Status: ${res.status}, Message: ${errorMessage}`);
+      }
+  
+      const responseData = await res.json();
+      console.log('Server response:', responseData);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+  
   return (
     <div>
         <form onSubmit={handleSubmit((data) => onSubmit(data))}>

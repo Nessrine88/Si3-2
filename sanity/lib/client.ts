@@ -9,5 +9,5 @@ export const client = createClient({
   dataset,
   apiVersion,
   token,
-
+ useCdn
 });

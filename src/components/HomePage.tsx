@@ -114,49 +114,37 @@ const HomePage = () => {
           />
         </div>
 
-        <div className="flex flex-row justify-between w-full gap-4">
-          <div
-            className="flex items-center relative border border-white text-white px-4 py-2 rounded-lg w-full cursor-pointer"
-            onClick={toggleDropDown}
-            ref={dropdownRef1}
-          >
-            <p className="md:mr-3 mr-2 ">Community Type</p>
-            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-4 h-auto z-20" />
-            <div
-              className={`dropdown ${
-                dropDownOpen ? 'block' : 'hidden'
-              } w-fit absolute top-full mr-7 mt-1 text-black p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30`}
-            >
-              <ul className="fira-mono-regular leading-7 text-lg ">
-                <li className='hover:bg-pink-200 p-2 rounded-lg'>Education</li>
-                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">Regional</li>
-                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">NFT Collections</li>
-                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">DAO&apos;s</li>
-              </ul>
-            </div>
-          </div>
+        <div className="flex flex-row justify-between w-full gap-4 rounded-lg">
+          
+        <select 
+  name="community type" 
+  id="community type" 
+  className="z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none "
+>
+  <option value="Community Type" className='hidden'>Community Type</option>
+  <option value="Education" className=' fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black'>Education</option>
+  <option value="Regional" className='hover:bg-pink-200 p-10 rounded-lg text-black'>Regional</option>
+  <option value="NFT Collection" className='hover:bg-pink-200 p-2 rounded-lg text-black'>NFT Collections</option>
+  <option value="DAO's" className='hover:bg-pink-200 p-2 rounded-lg text-black'>DAO's</option>
+</select>
 
-          <div
-            className="flex items-center relative border border-white text-white px-4 py-2 rounded-lg w-full cursor-pointer"
-            onClick={toggleDropDown2}
-            ref={dropdownRef2}
-          >
-            <p className="md:mr-3 mr-2">Community Location</p>
-            <img src={'/arrow-down.svg'} className="md:w-6 md:h-6 w-5 h-5 z-20" />
-            <div
-              className={`dropdown ${
-                dropDownOpen2 ? 'block' : 'hidden'
-              } md:w-[60%] w-fit absolute top-full mt-1 text-black p-5 px-10 bg-white border border-gray-300 rounded-md shadow-lg z-30`}
-            >
-              <ul className="fira-mono-regular leading-7 text-lg">
-                <li className="mt-4  hover:bg-pink-200 p-2 rounded-lg">Canada</li>
-                <li className="mt-4  hover:bg-pink-200 p-2 rounded-lg">U.S.A</li>
-                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">LATAM</li>
-                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">Europe</li>
-                <li className="mt-4 hover:bg-pink-200 p-2 rounded-lg">Africa</li>
-              </ul>
-            </div>
-          </div>
+
+           
+         
+              <select 
+  name="community type" 
+  id="community type" 
+  className="z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none "
+>
+  <option value="Community Location" className='hidden'>Community Location</option>
+  <option value="Canada" className=' fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black'>Canada</option>
+  <option value="U.S.A" className='hover:bg-pink-200 p-10 rounded-lg text-black'>U.S.A</option>
+  <option value="LATAM" className='hover:bg-pink-200 p-2 rounded-lg text-black'>LATAM</option>
+  <option value="Europe" className='hover:bg-pink-200 p-2 rounded-lg text-black'>Europe</option>
+  <option value="Africa" className='hover:bg-pink-200 p-2 rounded-lg text-black'>Africa</option>
+</select>
+            
+        
         </div>
       </div>
       <div className="mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full">
