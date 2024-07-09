@@ -16,7 +16,14 @@ const HomePage = () => {
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
-
+  const handleCommunityTypeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchTerm(event.target.value);
+  };
+  
+  const handleCommunityLocationChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchTerm(event.target.value);
+  };
+  
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
@@ -88,7 +95,7 @@ const HomePage = () => {
                 <span
                   className="mt-5 info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
                 >
-                  Submit your community for our team's review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+                  Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
                 </span>
                 <div>
                   <i className="far fa-question-circle w-6 h-6"></i>
@@ -133,21 +140,21 @@ const HomePage = () => {
               name="communityType"
               id="communityType"
               className="z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
-              onChange={handleSearch}
+              onChange={handleCommunityTypeChange}
               defaultValue={searchTerm}
             >
               <option value="" disabled>Community Type</option>
               <option value="Education" className="hover:bg-pink-200 p-2 rounded-lg text-black">Education</option>
               <option value="Regional" className="hover:bg-pink-200 p-2 rounded-lg text-black">Regional</option>
               <option value="NFT Collection" className="hover:bg-pink-200 p-2 rounded-lg text-black">NFT Collections</option>
-              <option value="DAOs" className="hover:bg-pink-200 p-2 rounded-lg text-black">DAO's</option>
+              <option value="DAOs" className="hover:bg-pink-200 p-2 rounded-lg text-black">DAO&apos;s</option>
             </select>
 
             <select
               name="community location"
               id="community location"
               className="z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
-              onChange={handleSearch}
+              onChange={handleCommunityLocationChange}
               defaultValue={searchTerm}
             >
               <option value="" disabled>Community Location</option>
