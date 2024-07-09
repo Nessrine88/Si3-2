@@ -62,7 +62,12 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   if (loading) {
-    return <div>Loading...</div>; 
+    return (
+    <div className="loader">
+      <div className="inner one"></div>
+      <div className="inner two"></div>
+      <div className="inner three"></div>
+    </div>); 
   }
 
   if (filteredCards.length === 0) {
