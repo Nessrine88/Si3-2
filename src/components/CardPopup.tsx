@@ -34,17 +34,14 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
 
   return (
     show && (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4  overflow-auto"
-        aria-labelledby="popup-title"
-        role="dialog"
-        aria-modal="false"
-      >
-        <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 overflow-auto">
+        <div className="absolute inset-0 z-20 flex items-center justify-center">
+          <img src="/images/circleBg.png" alt="" className="w-full h-full object-cover" />
+        </div>
         <div className="relative bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
           <div className="flex justify-between items-center mb-4">
-            <h2 id="popup-title" className="text-2xl clash font-bold leading-6 text-[20px]">Add Community</h2>
-            <i className="fas fa-times text-[#404040] text-lg cursor-pointer" onClick={handleClose}></i>
+            <h2 id="popup-title" className="text-2xl font-bold text-gray-800">Add Community</h2>
+            <i className="fas fa-times text-gray-600 text-lg cursor-pointer" onClick={handleClose}></i>
           </div>
           <div id="hubspotForm"></div>
         </div>

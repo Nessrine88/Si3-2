@@ -155,6 +155,18 @@ body {
   z-index: 1;
 }
 
+.card {
+  position: relative;
+  overflow: hidden;
+
+  transition: border-color 0.3s ease-in-out;
+}
+
+.card:hover {
+  border-color: #FAB7D0; /* Change border color on hover */
+  box-shadow: 0 0 10px rgba(250, 183, 208, 0.8); /* Shadow color and intensity */
+}
+
 
 .custom-slide {
   width: 400px !important;
