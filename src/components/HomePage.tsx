@@ -86,7 +86,7 @@ const HomePage = () => {
               <div className="group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center">
                 Info
                 <span
-                  className="info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
+                  className="mt-5 info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
                 >
                   Submit your community for our team's review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
                 </span>
