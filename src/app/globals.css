@@ -14,12 +14,7 @@ body {
   position: relative;
   transition: all .35s;
 }
-.custom-select select{
-  position: relative;
-  font-family: Arial;
-  display: flex;
-  flex-wrap: wrap;
-}
+
 
 @media (max-width: 768px) {
   select {

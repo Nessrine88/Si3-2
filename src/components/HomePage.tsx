@@ -83,7 +83,7 @@ const HomePage = () => {
             <h1 className="text-white">Discover The</h1>
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
-          <div className="flex flex-col lg:flex-row items-center lg:mr-28 w-full lg:w-auto ">
+          <div className="flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -93,7 +93,7 @@ const HomePage = () => {
               <div className="group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center">
                 Info
                 <span
-                  className="mt-5 info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
+                  className="info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
                 >
                   Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
                 </span>
@@ -128,10 +128,11 @@ const HomePage = () => {
               />
             </div>
             <input
-              className="z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white"
+              className="z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white flex flex-wrap"
               placeholder="Search By Name, Location, Description, Values."
               value={searchTerm}
               onChange={handleSearch}
+              type='text'
             />
           </div>
 
@@ -144,7 +145,7 @@ const HomePage = () => {
               defaultValue={searchTerm}
             >
               <option value="" disabled>Community Type</option>
-              <option value="Education" className="hover:bg-pink-200 p-2 rounded-lg text-black">Education</option>
+              <option value="Education" className="hover:bg-pink-200 p-2 rounded-lg text-black"> Education</option>
               <option value="Regional" className="hover:bg-pink-200 p-2 rounded-lg text-black">Regional</option>
               <option value="NFT Collection" className="hover:bg-pink-200 p-2 rounded-lg text-black">NFT Collections</option>
               <option value="DAOs" className="hover:bg-pink-200 p-2 rounded-lg text-black">DAO&apos;s</option>
