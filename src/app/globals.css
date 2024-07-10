@@ -14,9 +14,25 @@ body {
   position: relative;
   transition: all .35s;
 }
+.custom-select select{
+  position: relative;
+  font-family: Arial;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-
-
+@media (max-width: 768px) {
+  select {
+    padding: 3px 2px;
+  }
+}
+select {
+  width: 100%;
+  max-width: 100%;
+}
+option {
+  padding: 2px;
+}
 .glow-on-hover:after{
   position: absolute;
   content: "";

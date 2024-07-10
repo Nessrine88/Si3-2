@@ -28,6 +28,14 @@ const HomePage = () => {
     setShowPopup(!showPopup);
   };
 
+  const toggleDropDown = () => {
+    setDropDownOpen(!dropDownOpen);
+  };
+
+  const toggleDropDown2 = () => {
+    setDropDownOpen2(!dropDownOpen2);
+  };
+
   const handleClickOutside = (event: MouseEvent) => {
     if (
       dropdownRef1.current &&
@@ -75,12 +83,17 @@ const HomePage = () => {
             <h1 className="text-white">Discover The</h1>
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
-          <div className="flex  flex-col lg:flex-row  lg:mr-28 w-full lg:w-auto ">
-       <div className=' sm:pr-5 mb-3 flex justify-center '>
-              <div className=" group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center">
+          <div className="flex flex-col lg:flex-row items-center lg:mr-28 w-full lg:w-auto ">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
+            >
+              <div className="group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center">
                 Info
                 <span
-                  className="info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
+                  className="mt-5 info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
                 >
                   Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
                 </span>
@@ -88,8 +101,7 @@ const HomePage = () => {
                   <i className="far fa-question-circle w-6 h-6"></i>
                 </div>
               </div>
-              </div>
-      
+            </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -123,7 +135,7 @@ const HomePage = () => {
             />
           </div>
 
-          <div className="flex flex-row justify-between w-full gap-4 rounded-lg">
+          <div className="custom-select flex flex-row justify-between w-full gap-4 rounded-lg">
             <select
               name="communityType"
               id="communityType"
@@ -147,10 +159,10 @@ const HomePage = () => {
             >
               <option value="" disabled>Community Location</option>
               <option value="Canada" className='fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black'>Canada</option>
-              <option value="U.S.A" className='hover:bg-pink-200 p-2 rounded-lg text-black'>U.S.A</option>
-              <option value="LATAM" className='hover:bg-pink-200 p-2 rounded-lg text-black'>LATAM</option>
-              <option value="Europe" className='hover:bg-pink-200 p-2 rounded-lg text-black'>Europe</option>
-              <option value="Africa" className='hover:bg-pink-200 p-2 rounded-lg text-black'>Africa</option>
+              <option value="U.S.A" className=' rounded-lg text-black'>U.S.A</option>
+              <option value="LATAM" className=' rounded-lg text-black'>LATAM</option>
+              <option value="Europe" className=' rounded-lg text-black'>Europe</option>
+              <option value="Africa" className=' rounded-lg text-black'>Africa</option>
             </select>
           </div>
         </motion.div>
