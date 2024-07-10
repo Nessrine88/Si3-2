@@ -224,7 +224,7 @@ const Navbar: React.FC = () => {
               className="w-9 h-9"
             />
             <Link href="#stayConnected" className="block text-white">
-            Subscribe
+            SUBSCRIBE
             </Link>
           </div>
         </div>
