@@ -14,7 +14,9 @@ body {
   position: relative;
   transition: all .35s;
 }
-
+.info2 {
+  display: none;
+}
 
 @media (max-width: 768px) {
   select {
@@ -22,6 +24,12 @@ body {
   }
   ::-webkit-input-placeholder{
     text-wrap: wrap;
+  }
+  .info {
+    display: none;
+  }
+  .info2 {
+    display: block;
   }
 }
 select {
