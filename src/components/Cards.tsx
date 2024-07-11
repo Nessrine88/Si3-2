@@ -112,7 +112,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                     </div>
                   </div>
                   <div>
-                    <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[114px] h-fit py-5">
+                    <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[114px] h-[90px] py-5 overflow-hidden">
                       {card.description}
                     </p>
                   </div>

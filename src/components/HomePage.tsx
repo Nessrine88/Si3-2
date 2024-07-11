@@ -158,7 +158,7 @@ const HomePage = () => {
               />
             </div>
             <input
-              className="pb-5 pt-1 md:p-0 z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-pink-900 flex justify-center align-center flex-wrap"
+              className="pb-5 pt-1 md:p-0 z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white flex justify-center align-center flex-wrap"
               placeholder="Search By Name, Location, Description, Values."
               value={searchTerm}
               onChange={handleSearch}
@@ -174,7 +174,7 @@ const HomePage = () => {
               onChange={handleCommunityTypeChange}
               defaultValue={searchTerm}
             >
-              <option value="" disabled>Community Type</option>
+              <option value="" disabled> <span>Community</span>Type</option>
               <option value="Education" className="hover:bg-pink-200 p-2 rounded-lg text-black"> Education</option>
               <option value="Regional" className="hover:bg-pink-200 p-2 rounded-lg text-black">Regional</option>
               <option value="NFT Collection" className="hover:bg-pink-200 p-2 rounded-lg text-black">NFT Collections</option>
