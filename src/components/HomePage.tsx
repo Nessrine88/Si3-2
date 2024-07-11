@@ -67,7 +67,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative pb-10 lg:pt-36 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2]">
+      <div className="relative pb-10 lg:pt-32 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2]">
         <img
           src='/images/bgMobile.png'
           className='absolute z-20 inset-0 h-full w-full mobile'
@@ -118,7 +118,7 @@ const HomePage = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="md:text-[20px] text-[14px] flex flex-col lg:flex-row justify-between lg:mr-28 mt-5 gap-4 lg:gap-12"
+          className="md:text-[20px] text-[14px] flex flex-col lg:flex-row justify-between lg:mr-28  gap-4 lg:gap-12"
         >
            <div className="info2 flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
             <motion.div
@@ -205,7 +205,7 @@ const HomePage = () => {
         >
           <p className="clash text-[#4428F2] text-[24px] md:text-[30px] font-medium leading-8 lg:leading-[68px] mb-4">JOIN OUR COMMON GROUND.</p>
               <motion.p
-              className="text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-10"
+              className="text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
