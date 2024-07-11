@@ -32,13 +32,18 @@ const CardPopup: React.FC<{ show: boolean; handleClose: () => void }> = ({ show,
     }
   }, [show]);
 
+  const handlePopupClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    // Prevent closing the popup if clicking inside the popup itself
+    event.stopPropagation();
+  };
+
   return (
     show && (
-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 overflow-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 overflow-auto" onClick={handleClose}>
         <div className="absolute inset-0 z-20 flex items-center justify-center">
           <img src="/images/circleBg.png" alt="" className="w-full h-full object-cover" />
         </div>
-        <div className="relative bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <div className="relative bg-white p-6 rounded-lg shadow-lg w-full max-w-lg" onClick={handlePopupClick}>
           <div className="flex justify-between items-center mb-4">
             <h2 id="popup-title" className="text-2xl font-bold text-gray-800">Add Community</h2>
             <i className="fas fa-times text-gray-600 text-lg cursor-pointer" onClick={handleClose}></i>
