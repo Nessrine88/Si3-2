@@ -120,7 +120,7 @@ const HomePage = () => {
           transition={{ duration: 1 }}
           className="md:text-[20px] text-[14px] flex flex-col lg:flex-row justify-between lg:mr-28 mt-5 gap-4 lg:gap-12"
         >
-          <div className="relative flex items-center border border-white px-4 py-2 rounded-lg w-full">
+          <div className="relative flex items-center border border-white pl-4 py-2 rounded-lg lg:w-[110%]">
             <div className="md:w-6 md:h-6 w-5 h-5 mr-2 flex items-center">
               <img
                 src={'/images/bigSearch.png'}
@@ -128,7 +128,7 @@ const HomePage = () => {
               />
             </div>
             <input
-              className="z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-white flex flex-wrap"
+              className="pb-5 pt-1 md:p-0 z-20 w-full bg-transparent leading-6 placeholder-white fira-mono-regular outline-none text-pink-900 flex justify-center align-center flex-wrap"
               placeholder="Search By Name, Location, Description, Values."
               value={searchTerm}
               onChange={handleSearch}
@@ -140,7 +140,7 @@ const HomePage = () => {
             <select
               name="communityType"
               id="communityType"
-              className="z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
+              className="text-wrap z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
               onChange={handleCommunityTypeChange}
               defaultValue={searchTerm}
             >
@@ -154,11 +154,11 @@ const HomePage = () => {
             <select
               name="community location"
               id="community location"
-              className="z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
+              className="text-wrap  z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
               onChange={handleCommunityLocationChange}
               defaultValue={searchTerm}
             >
-              <option value="" disabled>Community Location</option>
+              <option value="" disabled className='fira-mono-regular '>Community Location</option>
               <option value="Canada" className='fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black'>Canada</option>
               <option value="U.S.A" className=' rounded-lg text-black'>U.S.A</option>
               <option value="LATAM" className=' rounded-lg text-black'>LATAM</option>

@@ -20,6 +20,9 @@ body {
   select {
     padding: 3px 2px;
   }
+  ::-webkit-input-placeholder{
+    text-wrap: wrap;
+  }
 }
 select {
   width: 100%;
