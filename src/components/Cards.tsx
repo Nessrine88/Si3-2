@@ -105,13 +105,14 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.title}</p>
                       <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 px-4 text-center w-fit roboto-mono">{card.status}</p>
                       <div className="flex items-center">
-                        <img src="/images/location.png" alt="location icon" className='w-4 h-4 mr-1'/>
+                      <img src="/images/location-pin.png" alt="" className='w-5' />
+
                         <p className="leading-6 text-[16px] fira-mono-regular text-[#404040] ">{card.communityLocation}</p>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[114px] h-[90px] overflow-hidden">
+                    <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[114px] h-fit py-5">
                       {card.description}
                     </p>
                   </div>

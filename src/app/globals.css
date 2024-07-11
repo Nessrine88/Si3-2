@@ -17,7 +17,19 @@ body {
 .info2 {
   display: none;
 }
+In your CSS file or global styles
+#hubspotFormContainer {
+  max-width: 600px;
+  margin: 0 auto;
+  /* Add other styles as needed */
+}
 
+.my-form .hs-form {
+  background-color: #3C1FEF;
+}
+.fa-map-marker  {
+  color: rgb(206, 199, 199);
+}
 @media (max-width: 768px) {
   select {
     padding: 3px 2px;
