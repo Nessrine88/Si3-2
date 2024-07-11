@@ -1,29 +1,54 @@
-import { defineType,defineField } from "sanity";
-export default defineType({
-    name: 'formData',
-    type: 'document',
-    title: 'Form Data',
-    fields: [
-      defineField({
-        name: 'name',
-        type: 'string',
-        title: 'Name'
-      }),
-      defineField({
-        name: 'email',
-        type: 'string',
-        title: 'Email'
-      }),
-      defineField({
-        name: 'address',
-        type: 'string',
-        title: 'Address'
-      }),
-      defineField({
-        name: 'community',
-        type: 'string',
-        title: 'Community'
-      })
-    ]
-  })
-  
+// schemas/community.js
+
+export default {
+  name: 'form',
+  title: 'Form',
+  type: 'document',
+  fields: [
+    {
+      name: 'companyName',
+      title: 'Company Name',
+      type: 'string',
+    },
+    {
+      name: 'communityLeaderName',
+      title: 'Community Leader Name',
+      type: 'string',
+    },
+    {
+      name: 'communityLeaderEmail',
+      title: 'Community Leader Email',
+      type: 'string',
+    },
+    {
+      name: 'xHandle',
+      title: 'X Handle',
+      type: 'string',
+    },
+    {
+      name: 'warpastHandle',
+      title: 'Warpast Handle',
+      type: 'string',
+    },
+    {
+      name: 'communityWebsite',
+      title: 'Community Website',
+      type: 'url',
+    },
+    {
+      name: 'communityLocation',
+      title: 'Community Location',
+      type: 'string',
+    },
+    {
+      name: 'communityType',
+      title: 'Community Type',
+      type: 'string',
+    },
+    {
+      name: 'communityDescription',
+      title: 'Community Description',
+      type: 'text',
+    },
+  ],
+};
