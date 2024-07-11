@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
+import "../app/globals.css"
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const Navbar: React.FC = () => {
     <motion.nav
       animate={controls}
       initial={{ backgroundColor: "#d3b4c2" }} // initial background color
-      className="fixed w-full z-50 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-100"
+      className="fixed w-full z-50 backdrop-filter backdrop-blur-lg shadow-lg transition-all duration-100 navbar"
     >
       <div className="flex justify-between items-center px-5 md:px-16 py-4">
         <div className="lg:hidden">
@@ -70,7 +71,7 @@ const Navbar: React.FC = () => {
           >
             <a
               href="#"
-              className="hidden md:inline text-white font-semibold tracking-wider relative overflow-hidden"
+              className="hidden md:inline text-white font-semibold tracking-wider relative overflow-hidden clash"
             >
               ONBOARD
               {activeDropdown === "onboard" && (
@@ -98,7 +99,7 @@ const Navbar: React.FC = () => {
               >
                 <Link
                   href="#siherCoActive"
-                  className="block px-4 py-2  hover:text-[#4428f2] text-white "
+                  className="block px-4 py-2  hover:text-[#4428f2] text-white navbar "
                 >
                   SI Her Co-Active
                 </Link>
@@ -223,7 +224,7 @@ const Navbar: React.FC = () => {
               height={36}
               className="w-9 h-9"
             />
-            <Link href="#stayConnected" className="block text-white">
+            <Link href="#stayConnected" className="block text-white navbar">
             SUBSCRIBE
             </Link>
           </div>

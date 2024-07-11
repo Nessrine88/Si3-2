@@ -88,7 +88,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              whileHover={{scale: 1.03 }}
+              whileHover={{scale: 1.05 }}
               transition={{ duration: 0.2, delay: index * 0.1 }}
               className="card mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl"
             >
