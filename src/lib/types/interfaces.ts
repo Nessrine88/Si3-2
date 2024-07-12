@@ -2,17 +2,17 @@ import { Image } from 'sanity';
 
 export interface  Card {
   _type: 'cards';
-  cardIcon: {
+  communityLogo: {
       asset: {
           url: string;
           _type: 'reference';
       };
   };
-  title: string;
-  status: string;
-  description: string;
+  communityName: string;
+  communityType: string;
+  communityDescription: string;
   communityLocation: string;
-  links: {
+  communityWebsite: {
       icon: {
           asset: {
               url: string;

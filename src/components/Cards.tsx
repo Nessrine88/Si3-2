@@ -46,9 +46,9 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
 
   useEffect(() => {
     const filtered = cards.filter(card =>
-      card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      card.status.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.communityName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.communityDescription.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      card.communityType.toLowerCase().includes(searchTerm.toLowerCase()) ||
       card.communityLocation?.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setFilteredCards(filtered);
@@ -90,7 +90,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{scale: 1.05 }}
               transition={{ duration: 0.2, delay: index * 0.1 }}
-              className="card mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl"
+              className="card  p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-full h-[446px] border-[2px] border-[#FAB7D0] rounded-xl"
             >
               <div className='flex flex-col h-full justify-between'>
                 <div>
@@ -103,8 +103,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       />
                     </div>
                     <div className="ml-4">
-                      <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.title}</p>
-                      <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 px-4 text-center w-fit roboto-mono">{card.status}</p>
+                      <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.communityName}</p>
+                      <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 px-4 text-center w-fit roboto-mono">{card.communityType}</p>
                       <div className="flex items-center">
                       <img src="/images/location-pin.png" alt="" className='w-5' />
 
@@ -114,7 +114,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                   </div>
                   <div>
                     <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[114px] h-[90px] py-5 overflow-hidden">
-                      {card.description}
+                      {card.communityDescription}
                     </p>
                   </div>
                   <div className="mt-8 sm:mt-32 flex flex-col">
