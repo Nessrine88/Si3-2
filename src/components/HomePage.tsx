@@ -7,12 +7,8 @@ import "../app/globals.css";
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
-  const [showPopup2, setShowPopup2] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleClose = () => {
-    setShowPopup2(!showPopup2);
-  };
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
@@ -26,7 +22,7 @@ const HomePage = () => {
   };
   
   const togglePopup = () => {
-    setShowPopup2(prev => !prev);
+    setShowPopup(!showPopup);
   };
 
 
@@ -39,7 +35,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative pb-10 lg:pt-32 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-no-repeat bg-[#d6b3d2]">
+      <div className="relative pb-10 lg:pt-32 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-[length:100vw_100vh] bg-no-repeat bg-[#d6b3d2]">
         {/* <img
           src='/images/bgMobile.png'
           className='absolute z-20 inset-0 h-full w-full mobile'
@@ -62,29 +58,29 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-              <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center" onClick={togglePopup}>
+              <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center" >
                 Info
                 <div>
                   <i className="far fa-question-circle w-6 h-6"></i>
                 </div>
-                {showPopup2 && (
+               
                   <div
-                    className=" info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown  p-5  border w-full border-gray-300 rounded-md shadow-lg  fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-4 overflow-auto"
+                    className=" info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown  p-5  border w-full border-gray-300 rounded-md shadow-lg  hidden"
                   >
                   <p className='bg-white w-[25%] p-10 rounded-lg'> 
-                  <i className="fas fa-times text-gray-600 text-lg cursor-pointer float-end " onClick={handleClose}></i>
+                  <i className="fas fa-times text-gray-600 text-lg cursor-pointer float-end " ></i>
                      Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.</p>
          
 
                   </div>
-                )}
+          
               </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="glow-on-hover text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium"
+              className="glow-on-hover text-center relative z-20 text-[14px] clash uppercase rounded-lg text-white px-7 py-2 bg-black w-full lg:w-auto md:text-[20px] leading-[30px] font-medium" 
               onClick={togglePopup}
             >
               <p className='z-30 relative cursor-pointer '>Add a community</p>
@@ -105,7 +101,7 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-              <div className="z-30 group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center" onClick={togglePopup}>
+              <div className="z-30 group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center" >
                 Info
                 <span
                   className="info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"

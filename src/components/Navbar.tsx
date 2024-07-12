@@ -224,7 +224,7 @@ const Navbar: React.FC = () => {
               height={36}
               className="w-9 h-9"
             />
-            <Link href="#stayConnected" className="block text-white navbar">
+            <Link href="https://app.push.org/channels/0x0D54bD457AF5b5691d1D9790746d4C95f7885CFF" className="block text-white navbar">
             SUBSCRIBE
             </Link>
           </div>
