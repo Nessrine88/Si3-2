@@ -17,28 +17,38 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) =>  {
     communityLocation: '',
     communityType: '',
     communityDescription: '',
-    communityLogo: '',
+    communityLogo: null,
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]; // Use optional chaining (?.) for safety
+  const handleLogoChange = (event) => {
+    const file = event.target.files[0]; // Get the first file selected by the user
     if (file) {
-        // Assuming you want to create a URL for the file
-        const objectUrl = URL.createObjectURL(file);
-        
-        // Update formData with the new communityLogo structure
-        // setFormData({
-        //     ...formData,
-        //     communityLogo: {
-        //         asset: {
-        //             url: objectUrl,
-        //             _type: 'reference', // Adjust _type as needed
-        //         },
-        //     },
-        // });
+      // Perform upload to Sanity or your backend here
+      // After upload, update formData with the asset details received from Sanity
+      const imageUrl = "https://cdn.sanity.io/images/1bxi5lj1/production/695df5a756ee22bdc65d4a68883d75e673ef4457-87x87.svg"; // Replace with actual URL received from Sanity
+      const dimensions = {
+        height: 87,
+        width: 87,
+        aspectRatio: 1,
+      };
+      setFormData({
+        ...formData,
+        communityLogo: {
+          asset: {
+            url: imageUrl,
+            metadata: {
+              dimensions: dimensions,
+            }
+          }
+        }
+      });
+
+      // Optional: Log the updated formData for verification
+      console.log("Updated Form Data:", formData);
     }
-};
+  };
+  
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -235,7 +245,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) =>  {
                   type="file"
                   name="communityLogo"
                   onChange={handleLogoChange}
-                  accept="image/*"
+                  accept="*"
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
                 />
               </div>
