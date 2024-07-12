@@ -7,6 +7,7 @@ import "../app/globals.css";
 
 const HomePage = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showInfoPopup, setShowInfoPopup] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
 
@@ -23,6 +24,9 @@ const HomePage = () => {
   
   const togglePopup = () => {
     setShowPopup(!showPopup);
+  };
+  const toggleInfoPopup = () => {
+    setShowInfoPopup(!showInfoPopup);
   };
 
 
@@ -58,23 +62,23 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-              <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center" >
-                Info
-                <div>
-                  <i className="far fa-question-circle w-6 h-6"></i>
-                </div>
-               
-                  <div
-                    className=" info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown  p-5  border w-full border-gray-300 rounded-md shadow-lg  hidden"
-                  >
-                  <p className='bg-white w-[25%] p-10 rounded-lg'> 
-                  <i className="fas fa-times text-gray-600 text-lg cursor-pointer float-end " ></i>
-                     Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.</p>
+               <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center relative" onClick={toggleInfoPopup}>
+      Info
+      <div className="flex items-center">
+            <i className="far fa-question-circle w-6 h-6"></i>
+          </div>
+      {showInfoPopup && (
+        <div className="relative w-full">
          
-
-                  </div>
-          
-              </div>
+          <div className="info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-5 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto z-50">
+            <p className='bg-white  p-10 rounded-lg relative  w-[25%]'>
+              <i className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-2" onClick={toggleInfoPopup}></i>
+              Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -95,23 +99,29 @@ const HomePage = () => {
           className="md:text-[20px] text-[14px] flex flex-col lg:flex-row justify-between lg:mr-28  gap-4 lg:gap-12"
         >
           <div className="info2 flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
-            <motion.div
+          <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-              <div className="z-30 group hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center" >
-                Info
-                <span
-                  className="info invisible group-hover:visible fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown w-[272px] absolute top-full mr-7 mt-1 p-5 bg-white border border-gray-300 rounded-md shadow-lg z-30"
-                >
-                  Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
-                </span>
-                <div>
-                  <i className="far fa-question-circle w-6 h-6"></i>
-                </div>
-              </div>
+               <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center relative" onClick={toggleInfoPopup}>
+      Info
+      <div className="flex items-center">
+            <i className="far fa-question-circle w-6 h-6"></i>
+          </div>
+      {showInfoPopup && (
+        <div className="relative w-full">
+         
+          <div className="info2 fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-10 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex justify-center items-center  bg-black bg-opacity-50    z-50">
+            <p className='bg-white relative  p-10 rounded-lg   w-full'>
+              <i className=" fas fa-times text-gray-600 text-lg cursor-pointer absolute top-1 right-2" onClick={toggleInfoPopup}></i>
+              Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
