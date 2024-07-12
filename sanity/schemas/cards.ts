@@ -28,7 +28,32 @@ export default defineType({
     defineField({
       name: "title",
       type: "string",
-      title: "Community Name"
+      title: "Community Name",
+    }),
+    defineField({
+      name: "communityLeaderName",
+      type: "string",
+      title: "Community Leader Name",
+    }),
+    defineField({
+      name: "communityLeaderEmail",
+      type: "string",
+      title: "Community Leader Email",
+    }),
+    defineField({
+      name: "xHandle",
+      type: "string",
+      title: "X Handle",
+    }),
+    defineField({
+      name: "warpastHandle",
+      type: "string",
+      title: "Warpast Handle",
+    }),
+    defineField({
+      name: "communityWebsite",
+      type: "url",
+      title: "Community Website",
     }),
     defineField({
       name: "communityLocation",
@@ -42,8 +67,8 @@ export default defineType({
           { title: "LATAM", value: "LATAM" },
           { title: "Europe", value: "Europe" },
           { title: "Africa", value: "Africa" },
-        ]
-      }
+        ],
+      },
     }),
     defineField({
       name: "status",
@@ -56,13 +81,13 @@ export default defineType({
           { title: "Regional", value: "Regional" },
           { title: "NFT Collections", value: "NFT Collection" },
           { title: "DAO's", value: "DAO's" },
-        ]
-      }
+        ],
+      },
     }),
     defineField({
       name: "description",
       type: "string",
-      title: "Community Description"
+      title: "Community Description",
     }),
     defineField({
       name: 'links',
@@ -77,17 +102,17 @@ export default defineType({
               type: 'image',
               title: 'Icon',
               options: {
-                hotspot: true
-              }
+                hotspot: true,
+              },
             },
             {
               name: 'name',
               type: 'string',
-              title: 'Name'
-            }
-          ]
-        }
-      ]
-    })
-  ]
+              title: 'Name',
+            },
+          ],
+        },
+      ],
+    }),
+  ],
 });

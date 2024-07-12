@@ -25,31 +25,44 @@ const CardPopup = ({ show, handleClose }) => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-
+  
     try {
-      const token = 'YOUR_SANITY_API_TOKEN'; // Replace with your actual API token
+      const token = 'skNefpUYEpO7zEVO0BrXoWlqrwPCHv4P2EKFHGeCteGWaS5apHyICYhD6nLNwvPF4Re9T8VaElM3BzY303kFoVmYXozalErYFWndWRMX3uJWDh7N0QZTSuxIK0zHK6ax920EQyzMkBFwDHD0fWLQGJcw6jdhmTI03Qopvf7GDu9p7KIy6axt';
       const config = {
         headers: { 
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json'
         }
       };
-
+  
       const data = {
-        _type: 'community', // Assuming you have a 'community' schema in Sanity
+        _type: 'cards',
         ...formData
       };
-
-      await axios.post('https://<your-sanity-project-id>.api.sanity.io/v1/data/mutate/production', { mutations: [{ create: data }] }, config);
-
+  
+      console.log('Submitting data to Sanity:', data); // Log data before submission
+  
+      const response = await axios.post(
+        'https://1bxi5lj1.api.sanity.io/v2021-06-07/data/mutate/production',
+        { mutations: [{ create: data }] },
+        config
+      );
+  
+      console.log('Sanity Response:', response.data);
+      
       alert('Form submitted successfully!');
       handleClose();
     } catch (error) {
       console.error('Error submitting form', error);
+      if (error.response) {
+        console.error('Response data:', error.response.data);
+        console.error('Response status:', error.response.status);
+        console.error('Response headers:', error.response.headers);
+      }
       alert('There was an error submitting the form.');
     }
   };
-
+  
   return (
     show && (
       <div
