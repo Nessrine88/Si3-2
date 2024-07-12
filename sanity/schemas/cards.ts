@@ -1,6 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { getImageDimensions } from '@sanity/asset-utils';
-
+import { SanityImageSource } from "@sanity/asset-utils";
 export default defineType({
   name: "cards",
   type: "document",
@@ -16,10 +16,16 @@ export default defineType({
             return true;
           }
 
-          const { width, height } = getImageDimensions(value.asset._ref);
+          // Ensure value.asset is properly typed as a Sanity image asset
+          const asset = value.asset as SanityImageSource;
 
-          if (width < 87 || height < 87) {
-            return "Image must be at least 87x87 pixels";
+          // Check if asset is defined before accessing properties
+          if (asset && asset._ref) {
+            const { width, height } = getImageDimensions(asset._ref);
+
+            if (width < 87 || height < 87) {
+              return "Image must be at least 87x87 pixels";
+            }
           }
 
           return true;

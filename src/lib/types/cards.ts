@@ -5,14 +5,14 @@ export async function getCards(){
     const query=groq`
    *[_type == "cards"] {
       _id,
-      cardIcon {
+      communityLogo {
         asset->{url, metadata {dimensions}}
       },
-      title,
+      communityName,
       communityLocation,
-      status,
-      description,
-      links[]{
+      communityType,
+      communityDescription,
+      communityWebsite[]{
         icon {
           asset->{url, metadata {dimensions}}
         },
