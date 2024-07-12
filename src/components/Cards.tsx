@@ -138,12 +138,12 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
           ))}
         </div>
       </div>
-      
+     
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="flex md:gap-7 gap-2 justify-center pb-32 mx-20"
+        className="absolute bottom-0 w-full flex md:gap-7 gap-2 justify-center pb-32 mx-aut"
       >
         <motion.div 
           whileHover={{ scale: 1.1 }}
@@ -170,7 +170,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
           <i className="fas fa-chevron-right text-sm"></i>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
   );
 };
 
