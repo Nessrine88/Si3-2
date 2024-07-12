@@ -97,7 +97,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                   <div className="flex">
                     <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
                       <img
-                        src={card.cardIcon.asset.url}
+                        src={card.communityLogo.asset.url}
                         alt=""
                         className="object-cover w-full h-full rounded-md"
                       />
@@ -118,7 +118,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                     </p>
                   </div>
                   <div className="mt-8 sm:mt-32 flex flex-col">
-                    {card.links.map((link, linkIndex) => (
+                    {card.communityWebsite.map((link, linkIndex) => (
                       <div key={linkIndex} className="flex items-center mb-2">
                         <div className="w-[20px] h-[20px] mr-2">
                           <img className="w-full h-full object-cover" src={link.icon.asset.url} alt="" />

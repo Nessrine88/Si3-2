@@ -13,7 +13,19 @@ const CardPopup = ({ show, handleClose }) => {
     communityLocation: '',
     communityType: '',
     communityDescription: '',
+    communityLogo: null,
   });
+
+
+  const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFormData({
+        ...formData,
+        communityLogo: file,
+      });
+    }
+  };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -192,7 +204,16 @@ const CardPopup = ({ show, handleClose }) => {
                 className="w-full p-2 border border-gray-300 rounded mt-1"
               ></textarea>
             </div>
-
+            <div className="mb-4">
+              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Logo<span className='text-[#FF99F3] '>*</span></label>
+              <input
+                type="file"
+                name="communityLogo"
+                onChange={handleLogoChange}
+                accept="image/*"
+                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+              />
+            </div>
             <button
               type="submit"
               className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"

@@ -7,53 +7,28 @@ export default defineType({
   title: "Communities",
   fields: [
     defineField({
-      name: "cardIcon",
+      name: "communityLogo",
       type: "image",
       title: "Community Logo",
       validation: (rule) =>
         rule.custom((value) => {
-          if (!value || !value.asset || !value.asset._ref) {
-            return true; // If value or value.asset is undefined or null, return true
+          if (!value) {
+            return true;
           }
 
           const { width, height } = getImageDimensions(value.asset._ref);
 
           if (width < 87 || height < 87) {
-            return 'Image must be at least 87x87 pixels';
+            return "Image must be at least 87x87 pixels";
           }
 
           return true;
         }),
     }),
     defineField({
-      name: "title",
+      name: "communityName",
       type: "string",
       title: "Community Name",
-    }),
-    defineField({
-      name: "communityLeaderName",
-      type: "string",
-      title: "Community Leader Name",
-    }),
-    defineField({
-      name: "communityLeaderEmail",
-      type: "string",
-      title: "Community Leader Email",
-    }),
-    defineField({
-      name: "xHandle",
-      type: "string",
-      title: "X Handle",
-    }),
-    defineField({
-      name: "warpastHandle",
-      type: "string",
-      title: "Warpast Handle",
-    }),
-    defineField({
-      name: "communityWebsite",
-      type: "url",
-      title: "Community Website",
     }),
     defineField({
       name: "communityLocation",
@@ -71,7 +46,7 @@ export default defineType({
       },
     }),
     defineField({
-      name: "status",
+      name: "communityType",
       type: "string",
       title: "Community Type",
       initialValue: "Education",
@@ -85,34 +60,65 @@ export default defineType({
       },
     }),
     defineField({
-      name: "description",
+      name: "communityDescription",
       type: "string",
       title: "Community Description",
     }),
     defineField({
-      name: 'links',
-      type: 'array',
-      title: 'Links',
+      name: "communityWebsite",
+      type: "array",
+      title: "Community Website",
       of: [
         {
-          type: 'object',
+          type: "object",
           fields: [
             {
-              name: 'icon',
-              type: 'image',
-              title: 'Icon',
+              name: "icon",
+              type: "image",
+              title: "Icon",
               options: {
                 hotspot: true,
               },
             },
             {
-              name: 'name',
-              type: 'string',
-              title: 'Name',
+              name: "name",
+              type: "string",
+              title: "Name",
             },
           ],
         },
       ],
+    }),
+    defineField({
+      name: "communityLeaderName",
+      type: "string",
+      title: "Community Leader Name",
+      validation: (rule) =>
+        rule.required().error("Community Leader Name is required"),
+    }),
+    defineField({
+      name: "communityLeaderEmail",
+      type: "string",
+      title: "Community Leader Email",
+      validation: (rule) =>
+        rule
+          .required()
+          .email()
+          .error("Please provide a valid Community Leader Email"),
+    }),
+    defineField({
+      name: "xHandle",
+      type: "string",
+      title: "X Handle",
+      validation: (rule) =>
+        rule.required().error("X Handle is required"),
+    }),
+    defineField({
+      name: "warpastHandle",
+      type: "string",
+      title: "Warpast Handle",
+      validation: (rule) =>
+        rule.required().error("Warpast Handle is required"),
     }),
   ],
 });
