@@ -20,8 +20,8 @@ export default defineType({
           const asset = value.asset as SanityImageSource;
 
           // Check if asset is defined before accessing properties
-          if (asset && asset._ref) {
-            const { width, height } = getImageDimensions(asset._ref);
+          if (asset) {
+            const { width, height } = getImageDimensions(asset);
 
             if (width < 87 || height < 87) {
               return "Image must be at least 87x87 pixels";

@@ -2,7 +2,11 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import "../app/globals.css";
 
-const CardPopup = ({ show, handleClose }) => {
+interface CardPopupProps {
+  show: boolean;
+  handleClose: () => void;
+}
+const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) =>  {
   const [formData, setFormData] = useState({
     communityName: '',
     communityLeaderName: '',
@@ -13,20 +17,28 @@ const CardPopup = ({ show, handleClose }) => {
     communityLocation: '',
     communityType: '',
     communityDescription: '',
-    communityLogo: null,
+    communityLogo: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files[0];
+    const file = e.target.files?.[0]; // Use optional chaining (?.) for safety
     if (file) {
-      setFormData({
-        ...formData,
-        communityLogo: file,
-      });
+        // Assuming you want to create a URL for the file
+        const objectUrl = URL.createObjectURL(file);
+        
+        // Update formData with the new communityLogo structure
+        // setFormData({
+        //     ...formData,
+        //     communityLogo: {
+        //         asset: {
+        //             url: objectUrl,
+        //             _type: 'reference', // Adjust _type as needed
+        //         },
+        //     },
+        // });
     }
-  };
-
+};
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData({
@@ -63,7 +75,7 @@ const CardPopup = ({ show, handleClose }) => {
       console.log('Sanity Response:', response.data);
       
       setIsSubmitted(true); // Set the submitted state to true to show the confirmation message
-    } catch (error) {
+    } catch (error:any) {
       console.error('Error submitting form', error);
       if (error.response) {
         console.error('Response data:', error.response.data);

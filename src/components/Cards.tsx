@@ -90,14 +90,14 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{scale: 1.05 }}
               transition={{ duration: 0.2, delay: index * 0.1 }}
-              className="card mx-auto p-[25px] flex flex-col justify-between lg:w-[412px] lg:h-[549px] w-[335px] h-[446px] border-[2px] border-[#FAB7D0] rounded-xl"
+              className="card mx-auto p-[25px] flex flex-col justify-between m-4 lg:w-[412px] lg:h-[549px] min-w-[300px] h-[446px] border-[2px] border-[#FAB7D0] rounded-xl"
             >
               <div className='flex flex-col h-full justify-between'>
                 <div>
                   <div className="flex">
                     <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
                       <img
-                        src={card.communityLogo.asset.url}
+                        src={card.communityLogo.asset?.url}
                         alt=""
                         className="object-cover w-full h-full rounded-md"
                       />

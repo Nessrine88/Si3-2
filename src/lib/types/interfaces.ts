@@ -6,7 +6,7 @@ export interface  Card {
       asset: {
           url: string;
           _type: 'reference';
-      };
+      }| null;
   };
   communityName: string;
   communityType: string;
