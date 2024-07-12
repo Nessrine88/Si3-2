@@ -15,7 +15,7 @@ const CardPopup = ({ show, handleClose }) => {
     communityDescription: '',
     communityLogo: null,
   });
-
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleLogoChange = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files[0];
@@ -62,8 +62,7 @@ const CardPopup = ({ show, handleClose }) => {
   
       console.log('Sanity Response:', response.data);
       
-      alert('Form submitted successfully!');
-      handleClose();
+      setIsSubmitted(true); // Set the submitted state to true to show the confirmation message
     } catch (error) {
       console.error('Error submitting form', error);
       if (error.response) {
@@ -74,7 +73,7 @@ const CardPopup = ({ show, handleClose }) => {
       alert('There was an error submitting the form.');
     }
   };
-  
+
   return (
     show && (
       <div
@@ -83,144 +82,159 @@ const CardPopup = ({ show, handleClose }) => {
         role="dialog"
         aria-modal="true"
       >
-        <div className="relative bg-white mt-96 mb p-6 rounded-lg shadow-lg w-full max-w-lg">
+        <div className={`relative bg-white mb p-6 rounded-lg shadow-lg w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-96'}`}>
           <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
           <div className="flex justify-between items-center mb-4">
-            <h2 id="popup-title" className="text-2xl clash font-bold leading-6 text-[20px]">Add Community</h2>
-            <i className="fas fa-times text-[#404040] text-lg" onClick={handleClose}></i>
+          <h2
+          id="popup-title"
+          className={`text-2xl clash font-bold leading-6 text-[20px] ${
+            isSubmitted ? 'hidden' : ''
+          }`}
+        >Add Community</h2>
+          <i className=" fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4" onClick={handleClose}></i>
           </div>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Name<span className='text-[#FF99F3] '>*</span></label>
-              <input
-                type="text"
-                name="communityName"
-                value={formData.communityName}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-                placeholder=""
-              />
+          {isSubmitted ? (
+            <div className="text-center relative">
+              
+              <img src="/images/waiting.png" alt="" />
+              <p className="text-[14px] leading-5 fira-mono-regular text-center text-[#696969] ">Thanks for submitting! A member of our team will be in touch soon.</p>
+              
+
             </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Name<span className='text-[#FF99F3] '>*</span></label>
+                <input
+                  type="text"
+                  name="communityName"
+                  value={formData.communityName}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  placeholder=""
+                />
+              </div>
 
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Leader Name<span className='text-[#FF99F3] '>*</span></label>
-              <input
-                type="text"
-                name="communityLeaderName"
-                value={formData.communityLeaderName}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-                placeholder=""
-              />
-            </div>
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Leader Name<span className='text-[#FF99F3] '>*</span></label>
+                <input
+                  type="text"
+                  name="communityLeaderName"
+                  value={formData.communityLeaderName}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  placeholder=""
+                />
+              </div>
 
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Leader Email<span className='text-[#FF99F3] '>*</span></label>
-              <input
-                type="text"
-                name="communityLeaderEmail"
-                value={formData.communityLeaderEmail}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-                placeholder=""
-              />
-            </div> 
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Leader Email<span className='text-[#FF99F3] '>*</span></label>
+                <input
+                  type="text"
+                  name="communityLeaderEmail"
+                  value={formData.communityLeaderEmail}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  placeholder=""
+                />
+              </div> 
 
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">X Handle</label>
-              <input
-                type="text"
-                name="xHandle"
-                value={formData.xHandle}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-                placeholder=""
-              />
-            </div>         
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">X Handle</label>
+                <input
+                  type="text"
+                  name="xHandle"
+                  value={formData.xHandle}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  placeholder=""
+                />
+              </div>         
 
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpast Handle</label>
-              <input
-                type="text"
-                name="warpastHandle"
-                value={formData.warpastHandle}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-                placeholder=""
-              />
-            </div>    
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpast Handle</label>
+                <input
+                  type="text"
+                  name="warpastHandle"
+                  value={formData.warpastHandle}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  placeholder=""
+                />
+              </div>    
 
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Website</label>
-              <input
-                type="text"
-                name="communityWebsite"
-                value={formData.communityWebsite}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-                placeholder=""
-              />
-            </div>   
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Website</label>
+                <input
+                  type="text"
+                  name="communityWebsite"
+                  value={formData.communityWebsite}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  placeholder=""
+                />
+              </div>   
 
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Location<span className='text-[#FF99F3] '>*</span></label>
-              <select 
-                name="communityLocation"
-                value={formData.communityLocation}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]" 
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Location<span className='text-[#FF99F3] '>*</span></label>
+                <select 
+                  name="communityLocation"
+                  value={formData.communityLocation}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]" 
+                >
+                  <option value="" disabled>Community Location</option>
+                  <option value="Canada" className='fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black'>Canada</option>
+                  <option value="U.S.A" className='rounded-lg text-black'>U.S.A</option>
+                  <option value="LATAM" className='rounded-lg text-black'>LATAM</option>
+                  <option value="Europe" className='rounded-lg text-black'>Europe</option>
+                  <option value="Africa" className='rounded-lg text-black'>Africa</option>
+                </select>     
+              </div>  
+
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Type<span className='text-[#FF99F3] '>*</span></label>
+                <select
+                  name="communityType"
+                  value={formData.communityType}
+                  onChange={handleChange}
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                >
+                  <option value="" disabled>Community Type</option>
+                  <option value="Education" className="rounded-lg text-black">Education</option>
+                  <option value="Regional" className="rounded-lg text-black">Regional</option>
+                  <option value="NFT Collection" className="rounded-lg text-black">NFT Collections</option>
+                  <option value="DAOs" className="rounded-lg text-black">DAO&apos;s</option>
+                </select>
+              </div>  
+
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Description</label>
+                <textarea
+                  name="communityDescription"
+                  value={formData.communityDescription}
+                  onChange={handleChange}
+                  className="w-full p-2 border border-gray-300 rounded mt-1"
+                ></textarea>
+              </div>
+              <div className="mb-4">
+                <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Logo<span className='text-[#FF99F3] '>*</span></label>
+                <input
+                  type="file"
+                  name="communityLogo"
+                  onChange={handleLogoChange}
+                  accept="image/*"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"
               >
-                <option value="" disabled>Community Location</option>
-                <option value="Canada" className='fira-mono-regular hover:bg-pink-200 p-2 rounded-lg text-black'>Canada</option>
-                <option value="U.S.A" className='rounded-lg text-black'>U.S.A</option>
-                <option value="LATAM" className='rounded-lg text-black'>LATAM</option>
-                <option value="Europe" className='rounded-lg text-black'>Europe</option>
-                <option value="Africa" className='rounded-lg text-black'>Africa</option>
-              </select>     
-            </div>  
-
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Type<span className='text-[#FF99F3] '>*</span></label>
-              <select
-                name="communityType"
-                value={formData.communityType}
-                onChange={handleChange}
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-              >
-                <option value="" disabled>Community Type</option>
-                <option value="Education" className="rounded-lg text-black">Education</option>
-                <option value="Regional" className="rounded-lg text-black">Regional</option>
-                <option value="NFT Collection" className="rounded-lg text-black">NFT Collections</option>
-                <option value="DAOs" className="rounded-lg text-black">DAO&apos;s</option>
-              </select>
-            </div>  
-
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Description</label>
-              <textarea
-                name="communityDescription"
-                value={formData.communityDescription}
-                onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mt-1"
-              ></textarea>
-            </div>
-            <div className="mb-4">
-              <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Logo<span className='text-[#FF99F3] '>*</span></label>
-              <input
-                type="file"
-                name="communityLogo"
-                onChange={handleLogoChange}
-                accept="image/*"
-                className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"
-            >
-              Submit
-            </button>
-          </form>
+                Submit
+              </button>
+            </form>
+          )}
         </div>
       </div>
     )

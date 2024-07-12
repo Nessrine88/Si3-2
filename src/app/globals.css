@@ -90,13 +90,7 @@ body {
     display: block;
   }
 }
-select {
-  width: 100%;
-  max-width: 100%;
-  height: auto; /* Let the height adjust automatically */
-  min-height: 60px; /* Set a minimum height as needed */
-  padding: 10px;
-}
+
 option {
   padding: 2px;
 }
@@ -385,5 +379,12 @@ option {
   @media (max-width: 600px) { 
     .mobile{
       display: block;
+    }
+    select {
+      width: 100%;
+      max-width: 100%;
+      height: auto; /* Let the height adjust automatically */
+      min-height: 60px; /* Set a minimum height as needed */
+      padding: 10px;
     }
    }
