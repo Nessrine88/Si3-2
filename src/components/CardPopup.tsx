@@ -82,7 +82,7 @@ const CardPopup = ({ show, handleClose }) => {
         role="dialog"
         aria-modal="true"
       >
-        <div className={`relative bg-white mb p-6 rounded-lg shadow-lg w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-96'}`}>
+        <div className={`relative bg-white mb p-6 rounded-lg shadow-lg w-full max-w-lg ${isSubmitted ? 'm-5' : 'mt-[450px] '}`}>
           <img src="/images/circleBg.png" alt="" className="absolute inset-0 z-20 mt-10 w-full h-[70%]" />
           <div className="flex justify-between items-center mb-4">
           <h2
