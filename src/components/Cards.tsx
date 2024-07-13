@@ -110,8 +110,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
 
                     <div className="ml-4">
                       <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.communityName}</p>
-                      <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 px-4 text-center w-fit roboto-mono">{card.communityType}</p>
-                      <div className="flex items-center">
+                      <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1  text-center w-fit roboto-mono">{card.communityType}</p>
+                      <div className="flex items-center  mt-2">
                       <img src="/images/location-pin.png" alt="" className='w-5' />
 
                         <p className="leading-6 text-[16px] fira-mono-regular text-[#404040] ">{card.communityLocation}</p>

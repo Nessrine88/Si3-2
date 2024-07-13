@@ -77,9 +77,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  select {
+  /* .custom-select select {
     padding: 3px 2px;
-  }
+  } */
   ::-webkit-input-placeholder{
     text-wrap: wrap;
   }
@@ -405,11 +405,23 @@ option {
     .mobile{
       display: block;
     }
-    select {
+    .custom-select select {
       width: 100%;
       max-width: 100%;
       height: auto; /* Let the height adjust automatically */
       min-height: 60px; /* Set a minimum height as needed */
       padding: 10px;
+      -moz-appearance:none; /* Firefox */
+      -webkit-appearance:none; /* Safari and Chrome */
+      appearance:none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      background: transparent;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 95%;
+      background-position-y: 50%;
+   
+     
     }
    }

@@ -170,7 +170,7 @@ const HomePage = () => {
             <select
               name="communityLocation"
               id="communityLocation"
-              className="text-wrap z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
+              className=" custom-select text-wrap z-30 fira-mono-regular p-5 border border-white px-4 py-2 rounded-lg w-full cursor-pointer bg-transparent text-white outline-none"
               onChange={handleCommunityLocationChange}
               defaultValue=""
             >
