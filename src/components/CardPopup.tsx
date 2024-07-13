@@ -197,7 +197,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityWebsite"
                   value={formData.communityWebsite}
                   onChange={handleChange}
-                  className="w-full p-2 border bg-black text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
                   placeholder=""
                 />
               </div>
