@@ -111,7 +111,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
               Add Community
             </h2>
             <i
-              className=" fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4"
+              className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4"
               onClick={handleClose}
             ></i>
           </div>
@@ -133,11 +133,11 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityName"
                   value={formData.communityName}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                   placeholder=""
                 />
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Leader Name<span className="text-[#FF99F3]">*</span>
@@ -147,11 +147,11 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityLeaderName"
                   value={formData.communityLeaderName}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                   placeholder=""
                 />
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Leader Email<span className="text-[#FF99F3]">*</span>
@@ -161,11 +161,11 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityLeaderEmail"
                   value={formData.communityLeaderEmail}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                   placeholder=""
                 />
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">X Handle</label>
                 <input
@@ -173,11 +173,11 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="xHandle"
                   value={formData.xHandle}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                   placeholder=""
                 />
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Warpast Handle</label>
                 <input
@@ -185,11 +185,11 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="warpastHandle"
                   value={formData.warpastHandle}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                   placeholder=""
                 />
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Website</label>
                 <input
@@ -197,11 +197,11 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityWebsite"
                   value={formData.communityWebsite}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                   placeholder=""
                 />
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Location<span className="text-[#FF99F3]">*</span>
@@ -210,7 +210,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityLocation"
                   value={formData.communityLocation}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                 >
                   <option value="" disabled>
                     Community Location
@@ -232,7 +232,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   </option>
                 </select>
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Type<span className="text-[#FF99F3]">*</span>
@@ -241,7 +241,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityType"
                   value={formData.communityType}
                   onChange={handleChange}
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                 >
                   <option value="" disabled>
                     Community Type
@@ -260,17 +260,17 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   </option>
                 </select>
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">Community Description</label>
                 <textarea
                   name="communityDescription"
                   value={formData.communityDescription}
                   onChange={handleChange}
-                  className="w-full p-2 border border-gray-300 rounded mt-1"
+                  className="w-full p-2 border border-gray-300 rounded mt-1 bg-[#f0f0f0]"
                 ></textarea>
               </div>
-
+  
               <div className="mb-4">
                 <label className="block text-[#404040] fira-mono-medium leading-6 text-[16px]">
                   Community Logo<span className="text-[#FF99F3]">*</span>
@@ -280,12 +280,12 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   name="communityLogo"
                   onChange={handleLogoChange}
                   accept="image/*"
-                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 opacity-[60%]"
+                  className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
                 />
                 {uploadingLogo && <p>Uploading logo...</p>}
                 {wrongImageType && <p className="text-red-500">Please upload a valid image file.</p>}
               </div>
-
+  
               <button
                 type="submit"
                 className="bg-black text-white px-4 py-2 rounded focus:outline-none focus:ring-2 float-end clash font-medium text-[20px]"
@@ -298,6 +298,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
       </div>
     )
   );
+  
 };
 
 export default CardPopup;
