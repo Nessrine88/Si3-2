@@ -40,11 +40,11 @@ const HomePage = () => {
   return (
     <>
       <div className="relative pb-10 lg:pt-32 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-[length:100vw_150vh] bg-no-repeat bg-[#d6b3d2]">
-        <img
+        {/* <img
           src='/images/bgMobile.png'
           className='absolute z-10 inset-0 h-full w-full mobile'
         />
-        
+         */}
         <motion.div 
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
