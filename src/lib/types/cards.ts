@@ -12,12 +12,9 @@ export async function getCards(){
       communityLocation,
       communityType,
       communityDescription,
-      communityWebsite[]{
-        icon {
-          asset->{url, metadata {dimensions}}
-        },
-        name
-      }
+      xHandle,
+      warpastHandle,
+      communityWebsite
     }
 
     `

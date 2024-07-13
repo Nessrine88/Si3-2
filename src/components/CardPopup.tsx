@@ -134,7 +134,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   value={formData.communityName}
                   onChange={handleChange}
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                  placeholder=""
+                  placeholder="Community Name"
                 />
               </div>
   
@@ -148,7 +148,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   value={formData.communityLeaderName}
                   onChange={handleChange}
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                  placeholder=""
+                  placeholder="Community Leader Name"
                 />
               </div>
   
@@ -162,7 +162,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   value={formData.communityLeaderEmail}
                   onChange={handleChange}
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                  placeholder=""
+                  placeholder=" Community Leader Email"
                 />
               </div>
   
@@ -174,7 +174,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   value={formData.xHandle}
                   onChange={handleChange}
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                  placeholder=""
+                  placeholder="X Handle"
                 />
               </div>
   
@@ -186,7 +186,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   value={formData.warpastHandle}
                   onChange={handleChange}
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                  placeholder=""
+                  placeholder="Warpast Handle"
                 />
               </div>
   
@@ -198,7 +198,7 @@ const CardPopup: React.FC<CardPopupProps> = ({ show, handleClose }) => {
                   value={formData.communityWebsite}
                   onChange={handleChange}
                   className="w-full p-2 border text-[#717171] rounded mt-1 relative z-30 fira-mono-regular text-[16px] leading-6 bg-[#f0f0f0]"
-                  placeholder=""
+                  placeholder="Community Website"
                 />
               </div>
   

@@ -72,29 +72,15 @@ export default defineType({
     }),
     defineField({
       name: "communityWebsite",
-      type: "array",
+      type: "url",
       title: "Community Website",
-      of: [
-        {
-          type: "object",
-          fields: [
-            {
-              name: "icon",
-              type: "image",
-              title: "Icon",
-              options: {
-                hotspot: true,
-              },
-            },
-            {
-              name: "name",
-              type: "string",
-              title: "Name",
-            },
-          ],
-        },
-      ],
-    }),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ["http", "https", "mailto", "tel"],
+        }),
+    }
+    ),
+          
     defineField({
       name: "communityLeaderName",
       type: "string",
@@ -114,17 +100,21 @@ export default defineType({
     }),
     defineField({
       name: "xHandle",
-      type: "string",
+      type: "url",
       title: "X Handle",
-      validation: (rule) =>
-        rule.required().error("X Handle is required"),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ["http", "https", "mailto", "tel"],
+        }),
     }),
     defineField({
       name: "warpastHandle",
-      type: "string",
+      type: "url",
       title: "Warpast Handle",
-      validation: (rule) =>
-        rule.required().error("Warpast Handle is required"),
+      validation: (Rule) =>
+        Rule.uri({
+          scheme: ["http", "https", "mailto", "tel"],
+        }),
     }),
   ],
 });

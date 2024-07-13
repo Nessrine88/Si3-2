@@ -1,3 +1,4 @@
+import { Url } from 'next/dist/shared/lib/router/router';
 import { Image } from 'sanity';
 
 export interface  Card {
@@ -12,13 +13,8 @@ export interface  Card {
   communityType: string;
   communityDescription: string;
   communityLocation: string;
-  communityWebsite: {
-      icon: {
-          asset: {
-              url: string;
-          };
-      };
-      name: string;
-  }[];
+  xHandle: string;
+  warpastHandle:string;
+  communityWebsite: string;
 }
 

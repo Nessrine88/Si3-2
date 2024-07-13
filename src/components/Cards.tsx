@@ -99,14 +99,14 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                 <div>
                   <div className="flex">
                   <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
-  {card.communityLogo && card.communityLogo.asset && (
-    <img
-      src={card.communityLogo.asset.url}
-      alt=""
-      className="object-cover w-full h-full rounded-md"
-    />
-  )}
-</div>
+                          {card.communityLogo && card.communityLogo.asset && (
+                            <img
+                              src={card.communityLogo.asset.url}
+                              alt=""
+                              className="object-cover w-full h-full rounded-md"
+                            />
+                          )}
+                        </div>
 
                     <div className="ml-4">
                       <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.communityName}</p>
@@ -119,23 +119,41 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                     </div>
                   </div>
                   <div>
-                    <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[114px] h-[90px] py-5 overflow-hidden">
+                    <p className="text-[#696969] text-[14px] sm:text-[16px] leading-[18px] sm:leading-[20px] fira-mono-regular pt-5 md:h-[80px] h-[70px] py-5 overflow-hidden">
                       {card.communityDescription}
                     </p>
                   </div>
-                  {/* <div className="mt-8 sm:mt-32 flex flex-col">
-                    {card.communityWebsite.map((link, linkIndex) => (
-                      <div key={linkIndex} className="flex items-center mb-2">
+                  <div className="mt-2 sm:mt-32 flex flex-col">
+                  {card.communityWebsite && (
+                      <div  className="flex items-center mb-2">
                         <div className="w-[20px] h-[20px] mr-2">
-                          <img className="w-full h-full object-cover" src={link.icon.asset.url} alt="" />
+                          <img className="w-full h-full object-cover" src={card.communityLogo.asset?.url} alt="" />
                         </div>
-                        <p className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash">{link.name}</p>
+                        <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.communityWebsite} target='_blank'>{card.communityWebsite}</a>
+                      </div>)}
+
+                      <div  className="flex items-center mb-2 ">
+                      {card.warpastHandle &&(
+                        <div className="w-[20px] h-[20px] mr-2">
+                          <img className="w-full h-full object-cover" src="/images/w.png" alt="" />
+                        </div>)}
+                        <a className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash"href={card.warpastHandle} target='_blank'>{card.warpastHandle}</a>
                       </div>
-                    ))}
-                  </div> */}
+
+                        <div className="flex items-center mb-2">
+                        {card.xHandle && (
+                        <div className="w-[20px] h-[20px] mr-2">
+                        <img className="w-full h-full object-cover" src="/images/x.png" alt="" />
+                        </div>
+                        )}
+                        <a className="text-[#4428F2] leading-20px sm:leading-30px font-medium tracking-normal text-[14px] sm:text-[16px] clash" href={card.xHandle} target="_blank">
+                        {card.xHandle}
+                        </a>
+                        </div>    
+                  </div>
                 </div>
                 <div className="">
-                  <button className="m-auto bottom-0 z-10 clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] border-gradient text-center py-[8px] custom-border-gradient w-full rounded-lg">
+                  <button className="m-auto bottom-2 z-10 clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] border-gradient text-center py-[8px] custom-border-gradient w-full rounded-lg">
                     App List’s Common Ground
                   </button>
                 </div>
