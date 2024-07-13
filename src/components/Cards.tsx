@@ -73,8 +73,10 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
   }
 
   return (
-    <div className="md:h-[3200px]  md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
-         <img src='/images/rightBg.png' className="absolute inset-0 -z-10  right-0 h-[300vh]" />
+    <>
+         <img src='/images/rightBg.png' className="absolute inset-0 -z-10 m-0 left-40 h-[300vh] hidden md:block" />
+
+    <div className="md:h-[3200px] relative md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
       <div className="relative flex justify-center ">
    
         
@@ -83,7 +85,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
         <img src="/images/Ellipse2.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
         <img src="/images/Ellipse3.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
 
-        <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px]">
+        <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 m-4 md:m-[4rem] mb-10 gap-[30px] pb-20">
           {currentCards.map((card, index) => (
             <motion.div 
               key={index}
@@ -147,7 +149,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="absolute bottom-0 w-full flex md:gap-7 gap-2 justify-center pb-32 mx-aut"
+        className="absolute bottom-0 w-full flex md:gap-7 gap-2 justify-center my-5 mx-aut"
       >
         <motion.div 
           whileHover={{ scale: 1.1 }}
@@ -175,6 +177,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
         </motion.div>
       </motion.div>
       </div>
+      </>
   );
 };
 

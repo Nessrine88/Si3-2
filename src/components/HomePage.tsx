@@ -39,12 +39,12 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="relative pb-10 lg:pt-32 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-[length:100vw_100vh] bg-no-repeat bg-[#d6b3d2]">
-        {/* <img
+      <div className="relative pb-10 lg:pt-32 pt-24 min-h-screen w-full px-4 lg:px-16 lg:bg-[url('/images/bgGradient.png')] bg-[length:100vw_150vh] bg-no-repeat bg-[#d6b3d2]">
+        <img
           src='/images/bgMobile.png'
-          className='absolute z-20 inset-0 h-full w-full mobile'
+          className='absolute z-10 inset-0 h-full w-full mobile'
         />
-         */}
+        
         <motion.div 
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,30 +56,30 @@ const HomePage = () => {
             <h1>WOMEN & NON-BINARY WEB3 ECOSYSTEM.</h1>
           </div>
           <div className="info flex flex-col lg:flex-row items-center lg:mr-28 lg:w-auto ">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
-            >
-               <div className="justify-center  hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center relative" onClick={toggleInfoPopup}>
-      Info
-      <div className="flex items-center">
-            <i className="far fa-question-circle w-6 h-6"></i>
-          </div>
-      {showInfoPopup && (
-        <div className="relative w-full">
-         
-          <div className="info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-5 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto z-50">
-            <p className='bg-white  p-10 rounded-lg relative  w-[25%]'>
-              <i className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-2" onClick={toggleInfoPopup}></i>
-              Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
-            </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
+          >
+            <div className=" hover:cursor-pointer fira-mono-bold text-[#4428F2] text-lg flex items-center gap-2 " onClick={toggleInfoPopup}>
+              <div>Info</div>
+              <div>
+                <i className="far fa-question-circle w-6 h-6"></i>
+              </div>
+            </div>
+            {showInfoPopup && (
+              <div className="relative w-full">
+                <div className="info fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-5 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex items-center justify-center bg-black bg-opacity-50 px-4 py-8 overflow-auto z-50">
+                  <p className='bg-white p-10 rounded-lg relative w-[25%]'>
+                    <i className="fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-2" onClick={toggleInfoPopup}></i>
+                    Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
+                  </p>
+                </div>
+              </div>
+            )}
+          </motion.div>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -105,17 +105,19 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-               <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center relative" onClick={toggleInfoPopup}>
-      Info
-      <div className="flex items-center">
-            <i className="far fa-question-circle w-6 h-6"></i>
-          </div>
-      {showInfoPopup && (
-        <div className="relative w-full">
+               <div className="z-50 justify-center hover:cursor-pointer fira-mono-bold  text-[#4428F2] text-lg flex gap-2 items-center" onClick={toggleInfoPopup}>
+                  <div className='flex  justify-center'>
+                  <div>Info</div> 
+                  <div>
+                    <i className="far fa-question-circle w-6 h-6 ml-2"></i>
+                  </div>
+                  </div>
+              {showInfoPopup && (
+              <div className="relative w-full">
          
           <div className="info2 fira-mono-regular leading-[20px] tracking-wider text-[14px] text-[#696969] dropdown p-10 border border-gray-300 rounded-md shadow-lg fixed inset-0 w-full flex justify-center items-center  bg-black bg-opacity-50    z-50">
-            <p className='bg-white relative  p-10 rounded-lg   w-full'>
-              <i className=" fas fa-times text-gray-600 text-lg cursor-pointer absolute top-1 right-2" onClick={toggleInfoPopup}></i>
+            <p className='bg-white relative  p-10 rounded-lg   w-full mt-40'>
+              <i className=" fas fa-times text-gray-600 text-lg cursor-pointer absolute top-2 right-4" onClick={toggleInfoPopup}></i>
               Submit your community for our team&apos;s review. We will respond back to the email address provided in 1-2 business days and share any questions we may have before adding your community to our discovery page.
             </p>
           </div>
@@ -185,11 +187,11 @@ const HomePage = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="glow-on-hover2 mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full"
+          className="z-50 glow-on-hover2 mt-9 py-6 bg-[#D574B633] bg-[url('/images/rectangle.png')] bg-no-repeat bg-cover bg-center bg-opacity-30 min-h-[30vh] rounded-lg flex flex-col justify-center items-center text-center p-6 w-full"
         >
           <p className="clash text-[#4428F2] text-[24px] md:text-[30px] font-medium leading-8 lg:leading-[68px] mb-4">JOIN OUR COMMON GROUND.</p>
           <motion.p
-            className="text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-5"
+            className=" text-[#1C1B22] text-[14px] lg:text-[20px] leading-5 lg:leading-6 fira-mono-regular mb-5"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -198,9 +200,9 @@ const HomePage = () => {
           </motion.p>
           <motion.button 
             whileHover={{ scale: 1.1 }}
-            className="z-auto bg-[#1C1B22] text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-[20px] fira-mono-regular"
+            className="z-50 bg-[#1C1B22] text-white px-6 py-4 rounded-lg leading-6 text-sm lg:text-[20px] fira-mono-regular"
           >
-           <a href="https://app.cg/e/si3" target='_blank' className='z-50'> COMMON GROUND</a>
+           <a href="https://app.cg/e/si3" target='_blank'> COMMON GROUND</a>
           </motion.button>
         </motion.div>
       </div>
