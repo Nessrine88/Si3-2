@@ -62,7 +62,7 @@ const HomePage = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="relative flex items-center justify-center mb-4 lg:mb-0 lg:mr-12 gap-5 w-full lg:w-auto"
             >
-               <div className="hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center relative" onClick={toggleInfoPopup}>
+               <div className="justify-center  hover:cursor-pointer fira-mono-bold lg:fira-mono-regular text-[#4428F2] text-lg flex gap-2 items-center relative" onClick={toggleInfoPopup}>
       Info
       <div className="flex items-center">
             <i className="far fa-question-circle w-6 h-6"></i>

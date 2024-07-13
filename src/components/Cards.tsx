@@ -63,10 +63,8 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
 
   if (loading) {
     return (
-    <div className="loader">
-      <div className="inner one"></div>
-      <div className="inner two"></div>
-      <div className="inner three"></div>
+    <div className="loader fixed inset-0 justify-center align-middle">
+      
     </div>); 
   }
 
@@ -76,7 +74,10 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
 
   return (
     <div className="md:h-[3200px]  md:bg-[url('/images/bottombg.png')] md:bg-no-repeat md:bg-left-bottom md:bg-[length:100vw_130vh] bg-no-repeat bg-right">
-      <div className="relative flex justify-center bg-no-repeat bg-right md:bg-[length:80vw_300vh] md:bg-right-top md:bg-[url('/images/rightBg.png')]">
+         <img src='/images/rightBg.png' className="absolute inset-0 -z-10  right-0 h-[300vh]" />
+      <div className="relative flex justify-center ">
+   
+        
         <img src='/images/pinkyBg.png' className="absolute inset-0 -z-10 w-[180vw] opacity-[.7] h-[100%] mobile" />
         <img src="/images/Ellipse1.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
         <img src="/images/Ellipse2.png" className="absolute -z-20 w-full m-96 h-[70%] mobile bg-center"/>
@@ -95,13 +96,16 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
               <div className='flex flex-col h-full justify-between'>
                 <div>
                   <div className="flex">
-                    <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
-                      <img
-                        src={card.communityLogo.asset?.url}
-                        alt=""
-                        className="object-cover w-full h-full rounded-md"
-                      />
-                    </div>
+                  <div className="shadow iconCard relative bg-gradient-to-b from-[#3E21F333] to-[#A020F0] p-[1.15px] w-[87px] h-[87px] rounded-md">
+  {card.communityLogo && card.communityLogo.asset && (
+    <img
+      src={card.communityLogo.asset.url}
+      alt=""
+      className="object-cover w-full h-full rounded-md"
+    />
+  )}
+</div>
+
                     <div className="ml-4">
                       <p className="clash uppercase font-medium text-[#404040] text-[24px] sm:text-[30px] leading-[28px] sm:leading-[36px]">{card.communityName}</p>
                       <p className="text-[14px] sm:text-[16px] leading-[20px] sm:leading-[25px] bg-[#A2FF9324] bg-opacity-[14%] rounded-[10px] mt-1 px-4 text-center w-fit roboto-mono">{card.communityType}</p>
@@ -117,7 +121,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                       {card.communityDescription}
                     </p>
                   </div>
-                  <div className="mt-8 sm:mt-32 flex flex-col">
+                  {/* <div className="mt-8 sm:mt-32 flex flex-col">
                     {card.communityWebsite.map((link, linkIndex) => (
                       <div key={linkIndex} className="flex items-center mb-2">
                         <div className="w-[20px] h-[20px] mr-2">
@@ -126,7 +130,7 @@ const Cards = ({ searchTerm }: { searchTerm: string }) => {
                         <p className="text-[#4428F2] leading-[20px] sm:leading-[30px] font-medium tracking-normal text-[14px] sm:text-[16px] clash">{link.name}</p>
                       </div>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
                 <div className="">
                   <button className="m-auto bottom-0 z-10 clash font-medium text-[16px] sm:text-[20px] leading-[24px] sm:leading-[30px] border-gradient text-center py-[8px] custom-border-gradient w-full rounded-lg">

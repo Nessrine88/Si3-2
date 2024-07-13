@@ -21,7 +21,7 @@ export default defineType({
 
           // Check if asset is defined before accessing properties
           if (asset) {
-            const { width, height } = getImageDimensions(asset._ref);
+            const { width, height } = getImageDimensions(asset);
 
             if (width < 87 || height < 87) {
               return "Image must be at least 87x87 pixels";
