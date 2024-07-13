@@ -426,7 +426,7 @@ option {
     }
    }
 
-   .custom-select select {
+   select {
     
     -moz-appearance:none; /* Firefox */
     -webkit-appearance:none; /* Safari and Chrome */
@@ -439,3 +439,4 @@ option {
     background-position-x: 95%;
     background-position-y: 50%; 
   }
+ 
